@@ -6,7 +6,8 @@
   "license": "ISC",
   "scripts": {
     "test": "gulp test",
-    "build": "gulp build"
+    "build": "gulp build",
+    "serve": "gulp serve"
   },
   "devDependencies": {
     "@babel/cli": "7.2.3",
