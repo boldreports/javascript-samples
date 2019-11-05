@@ -1,6 +1,6 @@
 window.Globals = {
-    SERVICE_URL: 'https://reports.syncfusion.com/demos/services/api/SamplesReportViewer',
-    DESIGNER_SERVICE_URL: 'https://reports.syncfusion.com/demos/services/api/SamplesReportDesigner',
+    SERVICE_URL: '/demos/services/api/ReportViewerWebApi',
+    DESIGNER_SERVICE_URL: '/demos/services/api/ReportDesignerWebApi',
     TOOLBAR_OPTIONS: {
         showToolbar: true,
         customGroups: [{
@@ -15,16 +15,25 @@ window.Globals = {
                 }
             }],
             // Need to remove the css (e-reportviewer-toolbarcontainer ul.e-ul:nth-child(4)) once the group index issue resolved
-            groupIndex: 3
+            groupIndex: 3,
+            cssClass: "e-show"
         }]
+    },
+    DESTROY_REPORT: true,
+    EXPORT_ITEM_CLICK: function () {
+        window.Globals.DESTROY_REPORT = false;
     },
     EDIT_REPORT: function (args) {
         if (args.value == "edit-report") {
-            var rootPath = location.href.split('#')[0];
+            let rootPath = location.href.split('#')[0];
             if (location.hash.length < 1) {
                 rootPath = location.href.substring(0, location.href.indexOf('report-viewer/'));
             }
-            window.open(`${rootPath}report-designer/?report-name=${args.model.reportPath}`, location.hash.length > 0 ? '_blank' : '_self');
+            const reportPath = args.model.reportPath;
+            const ReportDesignerPath = reportPath.indexOf('.rdlc') !== -1 ? 'report-designer/rdlc/' : 'report-designer/';
+            window.open(`${rootPath}${ReportDesignerPath}?report-name=${reportPath}`,
+                location.href.indexOf('/preview') === -1 ? '_blank' : '_self');
+
         }
     },
     DESIGNER_TOOLBAR_RENDERING: function (args) {
@@ -37,7 +46,7 @@ window.Globals = {
     DESIGNER_TOOLBAR_CLICK: function (args) {
         if (args.click === 'Save') {
             args.cancel = true;
-            $('#container').data('ejReportDesigner').saveToDevice();
+            $('#container').data('boldReportDesigner').saveToDevice();
         }
     }
 };

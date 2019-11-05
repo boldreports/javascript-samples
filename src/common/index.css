@@ -1,77 +1,84 @@
 @import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import './header/header.css';
+@import './main-content/main-content.css';
+@import './sidebar/sidebar.css';
 @import './../../node_modules/prismjs/themes/prism.css';
-@import './../../node_modules/@syncfusion/reporting-javascript/Content/reports/material/ej.reports.all.min.css';
+@import './../../node_modules/@boldreports/javascript-reporting-controls/Content/material/bold.reports.all.min.css';
 
 
-.ej-main-parent-content {
+/* loader */
+.splash {
   position: absolute;
-  left: 0;
-  top: 48px;
-  bottom: 0;
-  right: 0;
-  transition: left 400ms ease;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
 }
 
-.ej-main-child-content {
-  position: absolute;
-  left: 170px;
-  bottom: 0;
-  right: 0;
-  top: 0;
-  transition: left 400ms ease;
-  overflow: hidden;
+.message {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
-.mobile-overlay {
-  width: 100%;
-  position: fixed;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000005;
+.loader {
+  margin: auto;
+  width: 70px;
+  text-align: center;
 }
 
-.mobile-overlay.e-hidden {
+.loader>div {
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.loader .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.loader .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+
+  0%,
+  80%,
+  100% {
+      -webkit-transform: scale(0);
+  }
+
+  40% {
+      -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bouncedelay {
+
+  0%,
+  80%,
+  100% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+  }
+
+  40% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+  }
+}
+
+/* body */
+
+.e-hidden {
   display: none;
 }
-
-ej-header {
-  display: block;
-}
-
-ej-sidebar {
-  position: absolute;
-  background-color: #fff;
-  width: 170px;
-  display: block;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  top: 0;
-  overflow-y: auto;
-  transition: left 400ms ease;
-}
-
-.ej-toc-slide-left {
-  left: -170px;
-}
-
-@media only screen and (max-width: 550px) {
-  ej-sidebar {
-    position: fixed;
-    z-index: 1000005;
-    left: -170px;
-    background-color: #f8f8f8;
-  }
-
-  ej-sidebar.ej-toc-mobile-slide-left {
-    left: 0;
-  }
-
-  .ej-main-child-content {
-    left: 0;
-  }
-}
-
 
 body {
   margin: 0;
@@ -161,4 +168,74 @@ body {
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* common */
+.ej-main-parent-content {
+  position: absolute;
+  left: 0;
+  top: 48px;
+  bottom: 0;
+  right: 0;
+  transition: left 400ms ease;
+}
+
+.ej-main-child-content {
+  position: absolute;
+  left: 170px;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  transition: left 400ms ease;
+  overflow: hidden;
+}
+
+.mobile-overlay {
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000005;
+}
+
+.mobile-overlay.e-hidden {
+  display: none;
+}
+
+ej-header {
+  display: block;
+}
+
+ej-sidebar {
+  position: absolute;
+  background-color: #fff;
+  width: 170px;
+  display: block;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  overflow-y: auto;
+  transition: left 400ms ease;
+}
+
+.ej-toc-slide-left {
+  left: -170px;
+}
+
+@media only screen and (max-width: 550px) {
+  ej-sidebar {
+    position: fixed;
+    z-index: 1000005;
+    left: -170px;
+    background-color: #f8f8f8;
+  }
+
+  ej-sidebar.ej-toc-mobile-slide-left {
+    left: 0;
+  }
+
+  .ej-main-child-content {
+    left: 0;
+  }
 }

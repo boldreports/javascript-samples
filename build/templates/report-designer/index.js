@@ -2,11 +2,11 @@
  * Report designer control
  */
 $(function () {
-    $("#container").ejReportDesigner({
+    $("#container").boldReportDesigner({
         // Specifies the URL of the WebAPI service. It will be used for processing the report.
         serviceUrl: window.Globals.DESIGNER_SERVICE_URL,
         // This event will be triggered when the Report Designer widget is created
-        create: 'controlCreate',
+        create: controlCreate,
         reportItemExtensions: [{
             name: 'barcode',
             className: 'EJBarcode',
@@ -33,33 +33,48 @@ $(function () {
         toolbarSettings: {
             items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save
         },
+        ajaxBeforeLoad: onAjaxBeforeLoad,
         toolbarRendering: window.Globals.DESIGNER_TOOLBAR_RENDERING,
         toolbarClick: window.Globals.DESIGNER_TOOLBAR_CLICK
     });
 });
 
-// Open the RDL files in report designer
+let designerInst;
+
 function controlCreate() {
-    if (location.search) {
+    designerInst = $('#container').data('boldReportDesigner');
+    let reportName = getReportName();
+    if (reportName) {
         updateDescription();
-        var designer = $('#container').data('ejReportDesigner');
-        // This method opens the report from the Server.
-        designer.openReport(location.search.split('=')[1]);
+        designerInst.openReport(reportName);
     }
+
+}
+
+function onAjaxBeforeLoad(args) {
+    args.data = JSON.stringify({ reportType: "RDL" });
 }
 
 function updateDescription() {
-    var sampleName = location.search.split('=')[1].split('.')[0].replace(/-/g, ' ');
-    var formattedSampleName = "";
-    sampleName.replace(/\w\S*/g, function (value) {
-        formattedSampleName += value.charAt(0).toUpperCase() + value.substr(1).toLowerCase() + " ";
-    });
+    var sampleName = location.search.split('=')[1].split('.')[0];
+    var reportSampleData = window.reportSamples.filter(function (sample) {
+        return (sample.routerPath === sampleName)
+    })[0];
+    title = reportSampleData.metaData.title;
+    if (!title) {
+        title = reportSampleData.sampleName;
+    }
     var metaDes = document.getElementsByName('description')[0].content;
-    var title = formattedSampleName + ' | JavaScript Report Designer';
+    metaDes = metaDes.replace(/{{sampleName}}/g, title);
+    document.getElementsByName('description')[0].content = metaDes;
+    title = title + ' | JavaScript Report Designer';
     document.title = title;
     if (title.length < 45) {
-        document.title = title + ' | Syncfusion';
+        document.title = title + ' | Bold Reports';
     }
-    metaDes = metaDes.replace(/{{sampleName}}/g, formattedSampleName);
-    document.getElementsByName('description')[0].content = metaDes;
 }
+
+function getReportName() {
+    const reportNameRegex = /[\\?&]report-name=([^&#]*)/.exec(location.search);
+    return reportNameRegex ? reportNameRegex[1] : undefined;
+};
