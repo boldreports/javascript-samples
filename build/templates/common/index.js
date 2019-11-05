@@ -1,17 +1,28 @@
 import * as jquery from 'jquery';
 window['$'] = jquery;
-import './../../../src/controls/globals'
+import * as data from './../../../src/controls/samples.json';
+window['reportSamples'] = data.default.samples;
+import './../../../src/controls/globals';
+import './../../../src/controls/rdlcData';
+
+//bootstrap
+import './../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+//common
+import './index.css';
 
 //report-viewer
-import '@syncfusion/reporting-javascript/Scripts/reports/ej.report-viewer.min';
-import './../../../node_modules/@syncfusion/reporting-javascript/Content/reports/material/ej.reports.all.min.css';
+import '@boldreports/javascript-reporting-controls/Scripts/bold.report-viewer.min';
+import './../../../node_modules/@boldreports/javascript-reporting-controls/Content/material/bold.reports.all.min.css';
 
 //report-designer
-import './../../../node_modules/@syncfusion/reporting-javascript/Content/reports/material/ej.reportdesigner.min.css';
-import '@syncfusion/reporting-javascript/Scripts/reports/ej.report-designer.min';
-import './../report-designer/extensions/report-item-extensions/barcode.css';
-import { EJBarcode } from './../report-designer/extensions/report-item-extensions/barcode';
-import { EJQRBarcode } from './../report-designer/extensions/report-item-extensions/qrbarcode';
+import './../../../node_modules/@boldreports/javascript-reporting-controls/Content/material/bold.reportdesigner.min.css';
+import '@boldreports/javascript-reporting-controls/Scripts/bold.report-designer.min';
+
+//barcode
+import './../extensions/report-item-extensions/barcode.css';
+import { EJBarcode } from './../extensions/report-item-extensions/barcode';
+import { EJQRBarcode } from './../extensions/report-item-extensions/qrbarcode';
 
 let barcode = 'EJBarcode';
 let qrBarcode = 'EJQRBarcode';
@@ -19,11 +30,11 @@ window[barcode] = EJBarcode;
 window[qrBarcode] = EJQRBarcode;
 
 //data-visualization
-import '@syncfusion/reporting-javascript/Scripts/reports/data-visualization/ej.bulletgraph.min';
-import '@syncfusion/reporting-javascript/Scripts/reports/data-visualization/ej.chart.min';
-import '@syncfusion/reporting-javascript/Scripts/reports/data-visualization/ej.circulargauge.min';
-import '@syncfusion/reporting-javascript/Scripts/reports/data-visualization/ej.lineargauge.min';
-import '@syncfusion/reporting-javascript/Scripts/reports/data-visualization/ej.map.min';
+import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.bulletgraph.min';
+import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.chart.min';
+import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.circulargauge.min';
+import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.lineargauge.min';
+import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.map.min';
 
 //code-mirror
 import 'codemirror/lib/codemirror';
@@ -36,3 +47,16 @@ import './../../../node_modules/codemirror/addon/hint/show-hint.css';
 
 import * as CodeMirror from 'codemirror';
 window['CodeMirror'] = CodeMirror;
+
+window.addEventListener('beforeunload', () => {
+    if (window.Globals.DESTROY_REPORT) {
+        destroyReportControls();
+    } else {
+        window.Globals.DESTROY_REPORT = true;
+    }
+});
+
+function destroyReportControls() {
+    const reportViewerElement = document.querySelector('.e-reportviewer.e-js');
+    if (reportViewerElement) { $(reportViewerElement).data('boldReportViewer')._ajaxCallMethod("ClearCache", "_clearCurrentServerCache", false); }
+}

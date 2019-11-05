@@ -3,7 +3,6 @@ import * as hasher from 'hasher';
 export class Sidebar {
     constructor(element) {
         this.element = element;
-        this.init();
     }
 
     async init() {
@@ -15,13 +14,13 @@ export class Sidebar {
         homeElement.addEventListener('click', this.onHomeBtnClick.bind(this));
         for (let i = 0; i < samples.length; i++) {
             let tocCard = document.createElement('div');
-            tocCard.setAttribute('data-mode', samples[i].imageDetails.isLandscape ? 'ej-landscape' : 'ej-portrait');
             tocCard.setAttribute('data-uid', i);
             tocCard.classList.add('ej-sb-toc-card');
             tocCard.tabIndex = -1;
-            let img = document.createElement("img");
-            img.alt = samples[i].sampleName;
-            img.src = `assets/sidebar/${samples[i].imageDetails.imageName}`;
+            let img = document.createElement("div");
+            img.classList.add(samples[i].imageDetails.isLandscape ? 'ej-landscape-img' : 'ej-portrait-img');
+            img.style.backgroundPositionY = -(samples[i].imageDetails.isLandscape ? samples[i].imageDetails.index * 70 :
+                samples[i].imageDetails.index * 120) + 'px';
             let title = document.createElement('div');
             title.classList.add('ej-sb-toc-title');
             title.textContent = samples[i].sampleName;
@@ -29,9 +28,6 @@ export class Sidebar {
             tocCard.appendChild(title);
             toc.appendChild(tocCard);
         }
-        let style = document.createElement('style');
-        style.textContent = await this.fetchFile('src/common/sidebar/sidebar.css');
-        this.element.appendChild(style);
     }
     async fetchFile(path) {
         let response = await fetch(path);
@@ -45,12 +41,16 @@ export class Sidebar {
         let ele = this.closest(e.target, '.ej-sb-toc-card');
         if (ele) {
             let index = ele.getAttribute('data-uid');
-            hasher.setHash(data.default.samples[index].routerPath);
+            let sampleData = data.default.samples[index];
+            const reportPath = sampleData.routerPath ? (sampleData.basePath + '/' + sampleData.routerPath) : sampleData.basePath;
+            hasher.setHash(reportPath);
         }
     }
 
     onHomeBtnClick() {
-        hasher.setHash(data.default.samples[0].routerPath);
+        let sampleData = data.default.samples[index];
+        const reportPath = sampleData.routerPath ? (sampleData.basePath + '/' + sampleData.routerPath) : sampleData.basePath;
+        hasher.setHash(reportPath);
     }
 
     closest(element, selector) {

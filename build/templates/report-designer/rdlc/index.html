@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%; width: 100%;">
+
+<head>
+    <title>Bold Reports Samples</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="The HTML5 web report designer allows the end-users to arrange/customize the reports appearance in browsers. It helps to edit the {{sampleName}} for customer's application needs.">
+    <script>
+        function validateBrowser() {
+            var uaValidate = navigator.userAgent.match(/(MSIE |Trident.*rv[ :])([0-9]+)/);
+            if (uaValidate != null)
+                return uaValidate[2];
+            return null;
+        }
+        var ieVer = validateBrowser();
+        if (ieVer != null && ieVer < 11) {
+            if (!location.origin) {
+                location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+                location.href = location.origin + '/error.html';
+            }
+        }
+    </script>
+    <link href="../../favicon.ico" rel="shortcut icon" />
+    <link href="../../common/index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="splash">
+        <div class="message">JavaScript Reports</div>
+        <div class="loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <div class="ej-body e-hidden">
+        <div class="ej-preview-header">
+            <div class="ej-preview-left-side">
+                <a href="/demos/javascript/" target="_blank">
+                    <div class="ej-preview-platform-name">Bold Reports for JavaScript</div>
+                </a>
+            </div>
+            <div class="ej-preview-right-side">
+                <a href="https://documentation.boldreports.com" title="Documentation" target="_blank"><span
+                        class="ej-preview-header-icons preview-icon-documentation"></span></a>
+                <a href="https://www.boldreports.com" target="_blank" title="Product Details"><span
+                        class="ej-preview-header-icons preview-icon-product"></span></a>
+                <a href="https://www.boldreports.com/pricing/on-premise/" target="_blank" title="Download Now"><span
+                        class="ej-preview-header-icons preview-icon-download"></span></a>
+                <div class="ej-preview-divider"></div>
+                <a class="ej-preview-button" href="https://on-premise-demo.boldreports.com" title="Report Server"
+                    target="_blank">Explore Report Server</a>
+            </div>
+        </div>
+        <div class="ej-preview-content">
+            <div id="container"></div>
+        </div>
+    </div>
+    <script src="../../common/reports.js"></script>
+    <script src="index.js"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector(".splash").classList.add('e-hidden');
+        document.querySelector('.ej-body.e-hidden').classList.remove('e-hidden');
+    });
+</script>
+
+</html>

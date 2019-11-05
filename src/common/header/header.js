@@ -1,10 +1,12 @@
+import {
+    getRouterData
+} from './../router';
 import * as data from '../../controls/samples.json';
 import * as hasher from 'hasher';
 
 export class Header {
     constructor(element) {
         this.element = element;
-        this.init();
     }
 
     async init() {
@@ -16,10 +18,7 @@ export class Header {
         for (let i = 0; i < otherPlatforms.length; i++) {
             this.createdropdownItem(otherPlatforms[i].trim(), dropDownItems);
         }
-        this.element.getElementsByClassName('ej-sb-hamburger-icon')[0].addEventListener('click', this.onHamBurgerClick.bind(this))
-        let style = document.createElement('style');
-        style.textContent = await this.fetchFile('src/common/header/header.css');
-        this.element.appendChild(style)
+        this.element.getElementsByClassName('ej-sb-hamburger-icon')[0].addEventListener('click', this.onHamBurgerClick.bind(this));
     }
     async fetchFile(path) {
         let response = await fetch(path);
@@ -58,26 +57,35 @@ export class Header {
     platformSwitcher(e) {
         if (e.target.tagName == 'A') {
             let targetPlatform = e.target.innerText.trim();
-            let routerPath = this.getRouterPath(data.default.platform, targetPlatform, hasher.getHash());
-            window.open(location.origin + data.default.otherPlatforms[targetPlatform] + routerPath, '_self');
+            let routerData = getRouterData(hasher.getHash());
+            let platformBasePath;
+            let platformSamplePath;
+            const sampleName = routerData.reportRouterPath ? routerData.reportRouterPath : routerData.reportBasePath;
+            if (routerData.reportRouterPath) {
+                platformBasePath = this.getRouterPath(data.default.platform, targetPlatform, routerData.reportBasePath);
+            }
+            platformSamplePath = this.getRouterPath(data.default.platform, targetPlatform, sampleName);
+            const reportPath = routerData.reportRouterPath ? (platformBasePath + '/' + platformSamplePath) : platformSamplePath;
+            window.open(location.origin + data.default.otherPlatforms[targetPlatform] + reportPath, '_self');
+
         }
     }
 
-    getRouterPath(curPlatform, targetplatform, path) {
+    getRouterPath(curPlatform, targetplatform, sampleName) {
         curPlatform = curPlatform.toLowerCase();
         targetplatform = targetplatform.toLowerCase();
         const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1) ||
             (curPlatform.indexOf('asp') >= 0 && targetplatform.indexOf('asp') >= 0);
         if (samePath) {
-            return path;
+            return sampleName;
         } else {
             if (curPlatform.indexOf('asp') !== -1) {
-                return path.split(/(?=[A-Z])/).map((name) => {
+                return sampleName.split(/(?=[A-Z])/).map((name) => {
                     return name.toLowerCase();
                 }).join('-');
 
             } else {
-                return path.split(/-/).map((name) => {
+                return sampleName.split(/-/).map((name) => {
                     return name.charAt(0).toUpperCase() + name.slice(1);
                 }).join('');
 
