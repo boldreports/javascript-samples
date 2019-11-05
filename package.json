@@ -5,7 +5,6 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "test": "gulp test",
     "build": "gulp build",
     "serve": "gulp serve"
   },
