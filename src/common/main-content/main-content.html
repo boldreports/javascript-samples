@@ -1,0 +1,44 @@
+<div class="ej-main-body-content">
+  <div id="parentTabContainer">
+    <ul class="nav ej-nav-header" id="parentTab" role="tablist">
+      <li class="ej-nav-item">
+        <a href="#demo" data-toggle="tab" role="tab" aria-selected="true">
+          <Span class="ej-sb-icons ej-demo-icon"></Span><Span>DEMO</Span>
+        </a>
+      </li>
+      <li class="ej-nav-item source-tab">
+        <a href="#source" data-toggle="tab" role="tab" aria-selected="false">
+          <Span class="ej-sb-icons ej-source-icon"></Span><Span>SOURCE</Span>
+        </a>
+      </li>
+      <li class="ej-nav ej-nav-item ej-sb-icons">
+        <div class="new-tab">
+          <div class="ej-nav-new" title="Open in New Window" tabindex="0"></div>
+        </div>
+        <div class="ej-nav-prev" title="Previous Sample" tabindex="0"></div>
+        <div class="ej-nav-next" title="Next Sample" tabindex="0"></div>
+      </li>
+    </ul>
+    <div class="tab-content ej-tab-content" id="parentTabContent">
+      <div class="tab-pane ej-tab-pane" id="demo" role="tabpanel">
+        <ej-sample></ej-sample>
+      </div>
+      <div class="tab-pane" id="source" role="tabpanel">
+        <div id="childTabContainer">
+          <div class="tab-content ej-tab-content" id="childTabContent">
+            <div class="tab-pane ej-tab-pane html-content show active" id="html" role="tabpanel"></div>
+            <div class="tab-pane ej-tab-pane js-content" id="js" role="tabpanel"></div>
+          </div>
+          <ul class="nav ej-nav-header" id="childtTab" role="tablist">
+            <li class="ej-nav-item">
+              <a class="active html-header" href="#html" data-toggle="tab" role="tab" aria-selected="true"></a>
+            </li>
+            <li class="ej-nav-item">
+              <a href="#js" class="js-header" data-toggle="tab" role="tab" aria-selected="false"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

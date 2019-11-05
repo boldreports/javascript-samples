@@ -1,0 +1,224 @@
+{
+  "customNames": [
+    "app",
+    "barcode",
+    "northwind"
+  ],
+  "otherPlatforms": {
+    "Angular": "/demos/angular/#/report-viewer/",
+    "ASP.NET Core": "/demos/aspnet-core/ReportViewer/",
+    "ASP.NET MVC": "/demos/aspnet-mvc/ReportViewer/",
+    "ASP.NET WebForms": "/demos/aspnet-web-forms/ReportViewer/"
+  },
+  "platform": "JavaScript",
+  "samples": [{
+    "routerPath": "product-line-sales",
+    "sampleName": "Product Line Sales",
+    "directoryName": "product-line-sales",
+    "imageDetails": {
+      "imageName": "product-line-sales.png",
+      "isLandscape": false
+    },
+    "metaData": {
+      "description": "This sample demonstrates the cascading parameters support by listing the sub category products, based on product category in JavaScript platform.",
+      "tags": "cascading parameters"
+    }
+   },
+    {
+      "routerPath": "company-sales",
+      "sampleName": "Company Sales",
+      "directoryName": "company-sales",
+      "imageDetails": {
+        "imageName": "company-sales.png",
+        "isLandscape": true
+      },
+      "metaData": {
+        "description": "This sample demonstrates the overview of company sales by year with grouping feature in JavaScript platform.",
+        "tags": "grouping"
+      }
+    },
+    {
+      "routerPath": "mail-merge",
+      "sampleName": "Mail Merge",
+      "directoryName": "mail-merge",
+      "imageDetails": {
+        "imageName": "mail-merge.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "This sample demonstrates the employee details such as employee image, name, address and phone number by using the JavaScript List report item."
+      }
+    },
+    {
+      "routerPath": "sales-report",
+      "sampleName": "Sales Report",
+      "directoryName": "sales-report",
+      "imageDetails": {
+        "imageName": "sales-report.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "This sample demonstrates the complete details of sales orders by using Adventure Works data in JavaScript platform."
+      }
+    },
+    {
+      "routerPath": "territory-sales",
+      "sampleName": "Territory Sales",
+      "directoryName": "territory-sales",
+      "imageDetails": {
+        "imageName": "territory-sales.png",
+        "isLandscape": true
+      },
+      "metaData": {
+        "description": "This sample demonstrates the JavaScript Tablix with Row Grouping by sales region and drill down (expand/collapse) the group details.",
+        "tags": "Row Grouping"
+      }
+    },
+    {
+      "routerPath": "conditional-row-formatting",
+      "sampleName": "Conditional Row Formatting",
+      "directoryName": "conditional-row-formatting",
+      "imageDetails": {
+        "imageName": "conditional-row-formatting.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "This sample demonstrates to view shared dataset and Tablix rows with conditional formatting in JavaScript platform.",
+        "tags": "shared dataset"
+      }
+    },
+    {
+      "routerPath": "barcode",
+      "sampleName": "Barcode",
+      "directoryName": "barcode",
+      "imageDetails": {
+        "imageName": "barcode.png",
+        "isLandscape": true
+      },
+      "metaData": {
+        "description": "The sample demonstrates the most frequently used types of barcodes and qrcodes in JavaScript platform."
+      }
+    },
+    {
+      "routerPath": "customer-support-analysis",
+      "sampleName": "Customer Support Analysis",
+      "directoryName": "customer-support-analysis",
+      "imageDetails": {
+        "imageName": "customer-support-analysis.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "This sample demonstrates the overview of all the customer support to keep track of service trend in JavaScript platform."
+      }
+    },
+    {
+      "routerPath": "tickets-sales-analysis",
+      "sampleName": "Tickets Sales Analysis",
+      "directoryName": "tickets-sales-analysis",
+      "imageDetails": {
+        "imageName": "tickets-sales-analysis.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "This sample demonstrates the overview of theater tickets sold details by shows and date in JavaScript platform."
+      }
+    },
+    {
+      "routerPath": "website-visitor-analysis",
+      "sampleName": "Website Visitor Analysis",
+      "directoryName": "website-visitor-analysis",
+      "imageDetails": {
+        "imageName": "website-visitor-analysis.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "This sample demonstrates the customer behavior and conversion trend for a fictitious e-commerce website in JavaScript platform."
+      }
+    },
+    {
+      "routerPath": "patient-experience-analysis",
+      "sampleName": "Patient Experience Analysis",
+      "directoryName": "patient-experience-analysis",
+      "imageDetails": {
+        "imageName": "patient-experience-analysis.png",
+        "isLandscape": true
+      },
+      "metaData": {
+        "description": "This sample demonstrates the patient satisfaction trends during hospital visits in JavaScript platform."
+      }
+    },
+    {
+      "routerPath": "personal-expense-analysis",
+      "sampleName": "Personal Expense Analysis",
+      "directoryName": "personal-expense-analysis",
+      "imageDetails": {
+        "imageName": "personal-expense-analysis.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "The sample demonstrates the spending/expense patterns of an individual against the budget in JavaScript platform."
+      }
+    },
+    {
+      "routerPath": "northwind-products-suppliers-report",
+      "sampleName": "Northwind Products and Suppliers Report",
+      "directoryName": "northwind-products-suppliers-report",
+      "imageDetails": {
+        "imageName": "northwind-products-suppliers-report.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "This sample demonstrates the sales performance of different products and suppliers in JavaScript platform.",
+        "title": "Northwind Product Supplier Report"
+      }
+    },
+    {
+      "routerPath": "sales-order-detail",
+      "sampleName": "Sales Order Detail",
+      "directoryName": "sales-order-detail",
+      "imageDetails": {
+        "imageName": "sales-order-detail.png",
+        "isLandscape": true
+      },
+      "metaData": {
+        "description": "This sample demonstrates the sales order information based on sale order number in JavaScript platform."
+      }
+    },
+    {
+      "routerPath": "invoice",
+      "sampleName": "Invoice",
+      "directoryName": "invoice",
+      "imageDetails": {
+        "imageName": "invoice.png",
+        "isLandscape": true
+      },
+      "metaData": {
+        "description": "This report demonstrates the Report Parameters, Expressions, Textbox and Tablix Report Item capabilities of the ReportViewer."
+      }
+    },
+    {
+      "routerPath": "grouping-aggregate",
+      "sampleName": "Grouping Aggregate",
+      "directoryName": "grouping-aggregate",
+      "imageDetails": {
+        "imageName": "grouping-aggregate.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "This sample demonstrates the sorting and group total capabilities of JavaScript Report Viewer using Tablix report item."
+      }
+    },
+    {
+      "routerPath": "product-details",
+      "sampleName": "Product Details",
+      "directoryName": "product-details",
+      "imageDetails": {
+        "imageName": "product-details.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "The sample demonstrates the product details information based on JavaScript custom barcode report item."
+      }
+    }
+  ]
+}
