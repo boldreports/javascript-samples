@@ -44,6 +44,11 @@ let designerInst;
 function controlCreate() {
     designerInst = $('#container').data('boldReportDesigner');
     let reportName = getReportName();
+    designerInst.setModel({
+        previewOptions: {
+            exportItemClick: window.Globals.EXPORT_ITEM_CLICK
+        }
+    });
     if (reportName) {
         updateDescription();
         designerInst.openReport(reportName);

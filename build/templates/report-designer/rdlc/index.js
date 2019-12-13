@@ -48,7 +48,10 @@ function controlCreate() {
     let reportName = getReportName();
     designerInst.setModel({
         reportType: 'RDLC',
-        previewReport: previewReport
+        previewReport: previewReport,
+        previewOptions: {
+            exportItemClick: window.Globals.EXPORT_ITEM_CLICK
+        }
     });
     if (reportName) {
         updateDescription();
@@ -71,7 +74,7 @@ function previewReport(args) {
         let reportNameWithoutExt = reportPath.split(".rdlc")[0];
         datasource = rdlcData[reportNameWithoutExt];
         args.cancelDataInputDialog = true;
-        args.dataSets = datasource;        
+        args.dataSets = datasource;
     }
 }
 
