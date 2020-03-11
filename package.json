@@ -6,7 +6,8 @@
   "license": "ISC",
   "scripts": {
     "build": "gulp build",
-    "serve": "gulp serve"
+    "serve": "gulp serve",
+    "postinstall": "gulp copy"
   },
   "devDependencies": {
     "@babel/cli": "7.2.3",
