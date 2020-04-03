@@ -66,7 +66,8 @@ export class Header {
             }
             platformSamplePath = this.getRouterPath(data.default.platform, targetPlatform, sampleName);
             const reportPath = routerData.reportRouterPath ? (platformBasePath + '/' + platformSamplePath) : platformSamplePath;
-            window.open(location.origin + data.default.otherPlatforms[targetPlatform] + reportPath, '_self');
+            let url = location.origin.indexOf('demos.boldreports.com') !== -1 ? '/' : '/demos/';
+            window.open(location.origin + url + data.default.otherPlatforms[targetPlatform] + reportPath, '_self');
 
         }
     }
