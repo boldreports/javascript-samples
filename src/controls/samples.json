@@ -6,10 +6,10 @@
     "rdlcData"
   ],
   "otherPlatforms": {
-    "Angular": "/demos/angular/#/",
-    "ASP.NET Core": "/demos/aspnet-core/",
-    "ASP.NET MVC": "/demos/aspnet-mvc/",
-    "ASP.NET WebForms": "/demos/aspnet-web-forms/"
+    "Angular": "angular/#/",
+    "ASP.NET Core": "aspnet-core/",
+    "ASP.NET MVC": "aspnet-mvc/",
+    "ASP.NET WebForms": "aspnet-web-forms/"
   },
   "platform": "JavaScript",
   "samples": [

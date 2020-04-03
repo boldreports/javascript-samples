@@ -48,6 +48,11 @@ import './../../../node_modules/codemirror/addon/hint/show-hint.css';
 import * as CodeMirror from 'codemirror';
 window['CodeMirror'] = CodeMirror;
 
+$(function () {
+    let url = location.origin.indexOf('demos.boldreports.com') !== -1 ? '/' : '/demos/';
+    document.getElementById('home_page').setAttribute('href', url + 'javascript/#/');
+});
+
 window.addEventListener('beforeunload', () => {
     if (window.Globals.DESTROY_REPORT) {
         destroyReportControls();
