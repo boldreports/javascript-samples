@@ -46,13 +46,27 @@ let isServerReoport;
 function controlCreate() {
     designerInst = $('#container').data('boldReportDesigner');
     let reportName = getReportName();
-    designerInst.setModel({
-        reportType: 'RDLC',
-        previewReport: previewReport,
-        previewOptions: {
-            exportItemClick: window.Globals.EXPORT_ITEM_CLICK
-        }
-    });
+    if (reportName == "load-large-data.rdlc") {
+        designerInst.setModel({
+            reportType: 'RDLC',
+            previewReport: previewReport,
+            previewOptions: {
+                exportItemClick: window.Globals.EXPORT_ITEM_CLICK,
+                toolbarSettings: {
+                    items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print
+                }
+            }
+        });
+    }
+    else {
+        designerInst.setModel({
+            reportType: 'RDLC',
+            previewReport: previewReport,
+            previewOptions: {
+                exportItemClick: window.Globals.EXPORT_ITEM_CLICK
+            }
+        });
+    }
     if (reportName) {
         updateDescription();
         designerInst.openReport(reportName);
@@ -72,9 +86,11 @@ function previewReport(args) {
         let reportPath = args.model.reportPath;
         reportPath = reportPath.indexOf('//') !== -1 ? reportPath.substring(2) : reportPath
         let reportNameWithoutExt = reportPath.split(".rdlc")[0];
-        datasource = rdlcData[reportNameWithoutExt];
+        if (reportNameWithoutExt != "load-large-data") {
+            datasource = rdlcData[reportNameWithoutExt];
+            args.dataSets = datasource;
+        }
         args.cancelDataInputDialog = true;
-        args.dataSets = datasource;
     }
 }
 
