@@ -48,9 +48,8 @@ export class Sidebar {
     }
 
     onHomeBtnClick() {
-        let sampleData = data.default.samples[index];
-        const reportPath = sampleData.routerPath ? (sampleData.basePath + '/' + sampleData.routerPath) : sampleData.basePath;
-        hasher.setHash(reportPath);
+        let homePageUrl = location.origin.indexOf('demos.boldreports.com') !== -1 ? '/home/' : '/';
+        location.href = location.origin + homePageUrl;
     }
 
     closest(element, selector) {
