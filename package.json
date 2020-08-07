@@ -47,7 +47,7 @@
     "jquery": "3.4.1",
     "jquery-validation": "1.19.0",
     "jsrender": "1.0.2",
-    "prismjs": "1.15.0",
+    "prismjs": "1.21.0",
     "whatwg-fetch": "3.0.0"
   }
 }
