@@ -1,12 +1,12 @@
 /**
- * Product Catalog - This RDLC report demonstrates the list of products rendered in Bold Report Viewer.
+ * Consolidated Balance Sheet - This RDLC report demonstrates the financial balance records rendered in Bold Report Viewer.
  */
 $(function () {
     $("#container").boldReportViewer({
         // Specifies the report Web API service URL. It is used to process the reports.
         reportServiceUrl: window.Globals.SERVICE_URL,
         // Specifies the path of the RDL report file
-        reportPath: 'product-catalog.rdlc',
+        reportPath: 'consolidated-balance-sheet.rdlc',
         toolbarSettings: window.Globals.TOOLBAR_OPTIONS,
         toolBarItemClick: window.Globals.EDIT_REPORT,
         reportLoaded: onReportLoaded,

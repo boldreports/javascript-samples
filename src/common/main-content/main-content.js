@@ -14,12 +14,26 @@ export class MainContent {
         this.element.getElementsByClassName('ej-nav-new')[0].addEventListener('click', this.onTabBtnClick.bind(this));
         this.element.getElementsByClassName('ej-nav-prev')[0].addEventListener('click', this.onTabPrev.bind(this));
         this.element.getElementsByClassName('ej-nav-next')[0].addEventListener('click', this.onTabNext.bind(this));
+        $('a[data-toggle="tab"][href="#demo"]').on('shown.bs.tab', this.resizeReportViewer);
     }
 
     async fetchFile(path) {
         let response = await fetch(path);
         let data = await response.text();
         return data;
+    }
+
+    togglePopup() {
+        let overlay = document.querySelector('.ej-overlay');
+        overlay.classList.remove('e-hidden');
+        setTimeout(() => {
+            overlay.classList.add('e-hidden');
+        });
+    }
+
+    resizeReportViewer() {
+        const reportViewerElement = document.querySelector('.e-reportviewer.e-js');
+        if (reportViewerElement) $(reportViewerElement).trigger('resize');
     }
 
     onTabBtnClick() {
@@ -30,6 +44,7 @@ export class MainContent {
     }
 
     onTabPrev() {
+        this.togglePopup();
         let samples = data.default.samples;
         const curRouterData = this.getCurRouterData();
         const curRouterIndex = curRouterData.curIndex;
@@ -39,6 +54,7 @@ export class MainContent {
     }
 
     onTabNext() {
+        this.togglePopup();
         let samples = data.default.samples;
         const curRouterData = this.getCurRouterData();
         const curRouterIndex = curRouterData.curIndex;

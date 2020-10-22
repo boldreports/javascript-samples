@@ -1,5 +1,6 @@
 import * as data from '../../controls/samples.json';
 import * as hasher from 'hasher';
+
 export class Sidebar {
     constructor(element) {
         this.element = element;
@@ -17,15 +18,23 @@ export class Sidebar {
             tocCard.setAttribute('data-uid', i);
             tocCard.classList.add('ej-sb-toc-card');
             tocCard.tabIndex = -1;
+            var isLandscape = samples[i].imageDetails.isLandscape;
             let img = document.createElement("div");
-            img.classList.add(samples[i].imageDetails.isLandscape ? 'ej-landscape-img' : 'ej-portrait-img');
-            img.style.backgroundPositionY = -(samples[i].imageDetails.isLandscape ? samples[i].imageDetails.index * 70 :
+            img.classList.add(isLandscape ? 'ej-landscape-img' : 'ej-portrait-img');
+            img.style.backgroundPositionY = -(isLandscape ? samples[i].imageDetails.index * 70 :
                 samples[i].imageDetails.index * 120) + 'px';
             let title = document.createElement('div');
             title.classList.add('ej-sb-toc-title');
             title.textContent = samples[i].sampleName;
             tocCard.appendChild(img);
             tocCard.appendChild(title);
+            var status = samples[i].status;
+            if (!ej.isNullOrUndefined(status) && (status.toUpperCase() == 'UPDATED' || status.toUpperCase() == 'NEW')) {
+                let label = document.createElement("span");
+                label.classList.add(isLandscape ? 'ej-landscape' : 'ej-portrait', 'ej-status-label', `ej-${status.toLowerCase()}`);
+                label.textContent = status.toUpperCase();
+                tocCard.appendChild(label);
+            }
             toc.appendChild(tocCard);
         }
     }
@@ -34,7 +43,6 @@ export class Sidebar {
         let data = await response.text();
         return data;
     }
-
 
     onTocClick(e) {
         e.preventDefault();
