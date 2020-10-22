@@ -1,6 +1,15 @@
 /**
  * Report designer control
  */
+var reportName = getReportName();
+if (reportName) {
+    updateDescription();
+} else {
+    let metaDes = document.getElementsByName('description')[0].content;
+    metaDes = metaDes.replace(/{{sampleName}}/g, 'RDLC sample');
+    document.getElementsByName('description')[0].content = metaDes;
+}
+
 $(function () {
     $("#container").boldReportDesigner({
         // Specifies the URL of the WebAPI service. It will be used for processing the report.
@@ -45,7 +54,6 @@ let isServerReoport;
 
 function controlCreate() {
     designerInst = $('#container').data('boldReportDesigner');
-    let reportName = getReportName();
     if (reportName == "load-large-data.rdlc") {
         designerInst.setModel({
             reportType: 'RDLC',
@@ -68,7 +76,6 @@ function controlCreate() {
         });
     }
     if (reportName) {
-        updateDescription();
         designerInst.openReport(reportName);
     }
 }
@@ -99,18 +106,15 @@ function updateDescription() {
     var reportSampleData = window.reportSamples.filter(function (sample) {
         return (sample.routerPath === sampleName)
     })[0];
-    title = reportSampleData.metaData.title;
+    let title = reportSampleData.metaData.title;
     if (!title) {
         title = reportSampleData.sampleName;
     }
     var metaDes = document.getElementsByName('description')[0].content;
     metaDes = metaDes.replace(/{{sampleName}}/g, title);
     document.getElementsByName('description')[0].content = metaDes;
-    var title = title + ' | JavaScript Report Designer';
-    document.title = title;
-    if (title.length < 45) {
-        document.title = title + ' | Bold Reports';
-    }
+    title += ' | JavaScript Report Designer';
+    document.title = title.length < 45 ? title += ' | Bold Reports' : title;
 }
 
 function getReportName() {

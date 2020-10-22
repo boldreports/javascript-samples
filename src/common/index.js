@@ -47,6 +47,7 @@ export function onInit() {
     document.querySelector('.mobile-overlay').addEventListener('click', onMobileOverlayClick.bind(this));
     updateTab();
     document.querySelector('.mobile-overlay').classList.add('e-hidden');
+    document.querySelector('.ej-overlay').classList.add('e-hidden');
     window.addEventListener('resize', () => {
         onResize();
     });
@@ -63,7 +64,7 @@ export function updateData(sampleData) {
 function onResize() {
     setReportsHeight();
     updateTab();
-    updateOverlay();
+    updateMobileOverlay();
 }
 
 function tocSelection(sampleData) {
@@ -98,7 +99,6 @@ async function loadTabContent(sampleData) {
     descriptionElement.innerHTML = '';
     descriptionElement.appendChild(description);
 }
-
 
 async function fetchFile(path) {
     let response = await fetch(path);
@@ -156,7 +156,7 @@ function setReportsHeight() {
     }`;
 }
 
-function updateOverlay() {
+function updateMobileOverlay() {
     let mobileOverlay = document.querySelector('.mobile-overlay');
     let mobileSideBar = document.querySelector('ej-sidebar');
     if (!window.matchMedia('(max-width:550px)').matches) {
@@ -179,6 +179,7 @@ function updateMetaData(sampleData) {
         title = `${title} | Bold Reports`;
     }
     document.title = title;
+    document.querySelector('meta[name="title"]').setAttribute('content', title);
     document.querySelector('meta[name="description"]').setAttribute('content', sampleData.metaData.description);
 }
 

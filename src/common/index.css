@@ -86,6 +86,10 @@ body {
   font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
 }
 
+:focus {
+    outline: none;
+}
+
 @font-face {
   font-family: 'ejicons';
   src: url('./../../assets/sb-icons/fonts/icons.ttf?gcjn6a') format('truetype'), url('./../../assets/sb-icons/fonts/icons.woff?gcjn6a') format('woff'), url('./../../assets/sb-icons/fonts/icons.svg?gcjn6a#sbicons') format('svg');
@@ -196,6 +200,18 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000005;
+}
+
+.ej-overlay {
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  background-color: transparent;
+  z-index: 1000006 !important;
+}
+
+.e-reportviewer-waitingpopup {
+  z-index: 1000004 !important;
 }
 
 .mobile-overlay.e-hidden {

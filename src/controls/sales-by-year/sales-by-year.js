@@ -1,5 +1,5 @@
 /**
- * Product Catalog - This RDLC report demonstrates the list of products rendered in Syncfusion Report Viewer.
+ * Sales By Year - This RDLC report demonstrates the Sales record rendered in Bold Report Viewer.
  */
 $(function () {
     $("#container").boldReportViewer({
