@@ -44,7 +44,7 @@
     "@boldreports/javascript-reporting-controls": "*",
     "codemirror": "5.45.0",
     "hasher": "1.2.0",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "jquery-validation": "1.19.0",
     "jsrender": "1.0.2",
     "prismjs": "1.15.0",
