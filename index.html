@@ -4,9 +4,15 @@
 <head>
     <title>Reports for JavaScript | Bold Reports</title>
     <meta charset="utf-8">
+    <meta name="title" property="og:title" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Reports sample">
+    <meta name="description" property="og:description" content="Reports sample">
     <meta name="keywords" content="Bold Reports">
+    <meta property="og:image" content="https://www.boldreports.com/wp-content/uploads/2019/09/boldreports-ogp.png" alt="Reports sample for JavaScript" />
+    <meta property="og:image:secure_url" content="https://www.boldreports.com/wp-content/uploads/2019/09/boldreports-ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />   
     <script>
         function validateBrowser() {
             var uaValidate = navigator.userAgent.match(/(MSIE |Trident.*rv[ :])([0-9]+)/);
@@ -30,7 +36,7 @@
     <script type="text/javascript" src="scripts/data-visualization/ej2-circulargauge.min.js"></script>
     <script type="text/javascript" src="scripts/data-visualization/ej2-lineargauge.min.js"></script>
     <script type="text/javascript" src="scripts/data-visualization/ej2-maps.min.js"></script>
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 </head>
 
 <body>
@@ -45,6 +51,7 @@
     <div class="ej-body e-hidden">
         <ej-header></ej-header>
         <div class="mobile-overlay"></div>
+        <div class="ej-overlay"></div>
         <div class="ej-main-parent-content">
             <ej-sidebar></ej-sidebar>
             <div class="ej-main-child-content">
