@@ -28,15 +28,15 @@ $(function () {
                 title: 'Barcode'
             }
         }, {
-            name: 'qrbarcode',
+            name: 'matrixbarcode',
             className: 'EJQRBarcode',
             imageClass: 'customitem-qrbarcode',
-            displayName: 'QR Barcode',
+            displayName: '2D Barcode',
             category: 'Barcodes',
             toolTip: {
                 requirements: 'Add a report item to the designer area.',
                 description: 'Display the barcode lines as report item.',
-                title: 'QR Barcode'
+                title: '2D Barcode'
             }
         }],
         toolbarSettings: {
