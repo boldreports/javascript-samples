@@ -9,7 +9,7 @@ $(function () {
         reportPath: 'load-large-data.rdlc',
         toolbarSettings: {
             showToolbar: true,
-            items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print,
+            items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print & ~ej.ReportViewer.ToolbarItems.ExportSetup,
             customGroups: [{
                 items: [{
                     type: 'Default',

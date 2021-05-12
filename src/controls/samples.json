@@ -3,7 +3,8 @@
     "app",
     "barcode",
     "northwind",
-    "rdlcData"
+    "rdlcData",
+    "paystub"
   ],
   "otherPlatforms": {
     "Angular": "angular/#/",
@@ -287,6 +288,20 @@
       },
       "metaData": {
         "description": "This demos allows shows the consolidated balance sheet RDLC report represents the assets and liabilities of a company in JavaScript Bold Report Viewer."
+      }
+    },
+    {
+      "routerPath": "paystub",
+      "sampleName": "Paystub",
+      "basePath": "report-viewer",
+      "directoryName": "paystub",
+      "imageDetails": {
+        "isLandscape": true,
+        "index": 7
+      },
+      "status": "New",
+      "metaData": {
+        "description": "This demos shows the Paystub report represents the payslip of a company in JavaScript Bold Report Viewer."
       }
     }
   ]
