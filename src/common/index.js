@@ -8,6 +8,9 @@ import '@boldreports/javascript-reporting-controls/Scripts/bold.report-viewer.mi
 //data-visualization
 import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.bulletgraph.min';
 import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.chart.min';
+import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.circulargauge.min';
+import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.lineargauge.min';
+import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.map.min';
 
 import 'bootstrap';
 import {

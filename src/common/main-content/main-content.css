@@ -42,18 +42,18 @@
   padding: 0 12px;
   display: flex;
   align-items: center;
-  color:#2b3a5c;
+  color: #000;
   border-bottom: 2px solid transparent;
 }
 
 .ej-main-body-content .ej-nav-header .ej-nav-item a:hover {
-  color: #2b3a5c;
+  color: #0278d7;
   text-decoration: none;
 }
 
 .ej-main-body-content .ej-nav-header .ej-nav-item a.active {
-  color: #ff5f23;
-  border-color: #ff5f23;
+  color: #0278d7;
+  border-color: #0278d7;
 }
 
 .ej-main-body-content .ej-tab-content .tab-pane {
@@ -64,10 +64,6 @@
 .ej-main-body-content .ej-tab-content .tab-pane#ej-description {
   font-size: 14px;
   margin: 20px 0 15px 15px;
-}
-
-.ej-main-body-content #parentTab .ej-sb-icons{
-  color: #333;
 }
 
 @keyframes slideleft {

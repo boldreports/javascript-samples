@@ -32,7 +32,7 @@ export class Sidebar {
             if (!ej.isNullOrUndefined(status) && (status.toUpperCase() == 'UPDATED' || status.toUpperCase() == 'NEW')) {
                 let label = document.createElement("span");
                 label.classList.add(isLandscape ? 'ej-landscape' : 'ej-portrait', 'ej-status-label', `ej-${status.toLowerCase()}`);
-                label.textContent = status;
+                label.textContent = status.toUpperCase();
                 tocCard.appendChild(label);
             }
             toc.appendChild(tocCard);
@@ -45,9 +45,6 @@ export class Sidebar {
     }
 
     onTocClick(e) {
-        let reportViewerElement = document.querySelector('.e-reportviewer.e-js');
-        if (reportViewerElement)
-            $(reportViewerElement).boldReportViewer("clearReportCache");
         e.preventDefault();
         let ele = this.closest(e.target, '.ej-sb-toc-card');
         if (ele) {

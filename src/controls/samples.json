@@ -3,12 +3,10 @@
     "app",
     "barcode",
     "northwind",
-    "rdlcData",
-    "paystub"
+    "rdlcData"
   ],
   "otherPlatforms": {
     "Angular": "angular/#/",
-    "React" : "react/#/",
     "ASP.NET Core": "aspnet-core/",
     "ASP.NET MVC": "aspnet-mvc/",
     "ASP.NET WebForms": "aspnet-web-forms/"
@@ -289,33 +287,6 @@
       },
       "metaData": {
         "description": "This demos allows shows the consolidated balance sheet RDLC report represents the assets and liabilities of a company in JavaScript Bold Report Viewer."
-      }
-    },
-    {
-      "routerPath": "paystub",
-      "sampleName": "Paystub",
-      "basePath": "report-viewer",
-      "directoryName": "paystub",
-      "imageDetails": {
-        "isLandscape": true,
-        "index": 7
-      },
-      "metaData": {
-        "description": "This demos shows the Paystub report represents the payslip of a company in JavaScript Bold Report Viewer."
-      }
-    },
-    {
-      "routerPath": "dynamic-chart-series",
-      "sampleName": "Dynamic Chart Series",
-      "basePath": "report-viewer",
-      "directoryName": "dynamic-chart-series",
-      "imageDetails": {
-        "isLandscape": true,
-        "index": 8
-      },
-      "status": "New",
-      "metaData": {
-        "description": "This demos allows you to choose the chart series dynamically in JavaScript Bold Report Viewer."
       }
     }
   ]

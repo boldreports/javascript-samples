@@ -30,14 +30,13 @@
 
 .ej-sb-header .ej-sb-left-side .ej-sb-hamburger-icon::before {
     content: "\e914";
-    color: #333;
+    color: #3c78ef;
 }
 
 .ej-sb-header .ej-sb-left-side .ej-sb-platform-name {
     font-size: 15px;
     opacity: 0.87;
     font-weight: 600;
-    color: #2b3a5c;
 }
 
 .ej-sb-header .ej-sb-left-side .dropdown button.btn-secondary,
@@ -45,7 +44,7 @@
 .ej-sb-header .ej-sb-left-side .dropdown button.btn-secondary:active,
 .ej-sb-header .ej-sb-left-side .dropdown button.btn-secondary:active:focus {
     background: transparent;
-    color: #2b3a5c;
+    color: #000000;
     opacity: .87;
     border: none;
     box-shadow: none;
@@ -56,12 +55,11 @@
 .ej-sb-header .ej-sb-left-side .dropdown .dropdown-menu a {
     cursor: pointer;
     font-size: 14px;
-    color: #2b3a5c;
 }
 
 .ej-sb-header .ej-sb-left-side .dropdown .dropdown-menu a.active {
     background: transparent;
-    color: #ff5f23;
+    color: #3C78EF;
     cursor: default;
     pointer-events: none;
 }
@@ -110,13 +108,13 @@
     text-decoration: none;
     padding: 5.5px 13px;
     cursor: pointer;
-    background-color: #ff5f23;
+    background-color: #3C78EF;
     color: #ffffff;
     border-radius: 2px;
 }
 
 .ej-sb-header .ej-sb-right-side a.ej-sb-button:hover {
-    background: #ff4801;
+    background: #006CE6;
   }
 
 .ej-sb-header .ej-sb-right-side .sb-icon-product:before {
