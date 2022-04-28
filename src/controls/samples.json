@@ -9,6 +9,7 @@
   "otherPlatforms": {
     "Angular": "angular/#/",
     "React" : "react/#/",
+    "Blazor":  "blazor/",
     "ASP.NET Core": "aspnet-core/",
     "ASP.NET MVC": "aspnet-mvc/",
     "ASP.NET WebForms": "aspnet-web-forms/"
@@ -316,6 +317,65 @@
       "metaData": {
         "description": "This demos allows you to choose the chart series dynamically in JavaScript Bold Report Viewer."
       }
+    },
+    {
+      "routerPath": "data-bar",
+      "className": "DataBar",
+      "sampleName": "Data Bar",
+      "basePath": "report-viewer",
+      "directoryName": "data-bar",
+      "imageDetails": {
+        "isLandscape": true,
+        "index": 9
+      },
+      "status": "New",
+      "metaData": {
+        "description": "This demo represents company sales against year in table format with data bar report item in JavaScript Bold Report Viewer."
+      }
+    },
+    {
+      "routerPath": "spark-line",
+      "className": "SparkLine",
+      "sampleName": "Spark Line",
+      "basePath": "report-viewer",
+      "directoryName": "spark-line",
+      "imageDetails": {
+        "isLandscape": true,
+        "index": 10
+      },
+      "status": "New",
+      "metaData": {
+        "description": "This demo shows the company sales data with sparkline report item to represents the sales trend in JavaScript Bold Report Viewer."
+      }
+    },
+    {
+      "routerPath": "dynamic-columns",
+      "sampleName": "Dynamic Columns",
+      "basePath": "report-viewer",
+      "directoryName": "dynamic-columns",
+      "imageDetails": {
+        "isLandscape": false,
+        "index": 13
+      },
+      "status": "New",
+      "metaData": {
+        "description": "This demos allows you to choose the column of the table dynamically in Javascript Bold Report Viewer."
+      }
+    },
+    {
+      "routerPath": "external-parameter-report",
+      "sampleName": "External Parameter Report",
+      "basePath": "report-viewer",
+      "directoryName": "external-parameter-report",
+      "imageDetails": {
+        "isLandscape": false,
+        "index": 7
+      },
+      "status": "New",
+      "metaData": {
+        "description": "The Product Line Sales report displays sales details organized by category and subcategory of products using external cascading parameter in JavaScript Bold Report Viewer."
+      }
     }
+    
   ]
 }

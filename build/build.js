@@ -1,12 +1,13 @@
 const gulp = require("gulp");
 var shelljs = require('shelljs');
-const runSequence = require('run-sequence');
+const runSequence = require('gulp4-run-sequence');
 
-gulp.task('build', function (callback) {
-    runSequence('clean', 'new-tab', callback);
+gulp.task('build',(done)=>{
+    runSequence('clean', 'new-tab', done);
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', (done)=>{
     shelljs.rm('-rf', 'dist');
     shelljs.rm('-rf', 'demos');
+    done();
 });

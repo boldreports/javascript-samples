@@ -1,62 +1,143 @@
-# Bold Reports JavaScript samples
+# Reports JavaScript samples
 
-Bold Reports JavaScript samples repository contains the `Report Viewer` and `Report Designer` samples. It empower your web application with feature-rich report preview, edit, and customization capabilities that allow you to explore data easily and make real-time decisions. Effortlessly print and export reports.
+## Pre-requisite
 
-This section guides you to use the Bold Reports JavaScript samples in your applications.
+* Install stable `NodeJs` from https://nodejs.org and run `node -v` to check whether it is installed properly or not.
 
-* [Requirements to run the demo](#requirements-to-run-the-demo)
-* [Using the Reporting Samples](#using-the-reporting-samples)
-* [Online Demos](#online-demos)
-* [Documentation](#documentation)
-* [License](#license)
-* [Support and Feedback](#support-and-feedback)
+* Install gulp package with global access by executing the below command  and run `gulp -v` to check whether it is installed properly or not.
 
-## Requirements to run the demo
-
-The samples requires the below requirements to run.
-
-* [Node.js](https://nodejs.org)
-
-## Using the Reporting Samples
-
-### Install
-
-To install all dependent packages, use the below command
-
-```bash
-npm install
+```cmd
+npm install gulp -g
 ```
 
-### Build
 
-To compile the source files, use the below command.
+## Document Structure
 
-```bash
-npm run build
+The Reports JavaScript samples should be placed inside the `src/controls` location.
+
+Refer the below folder structure for further details.
+
+    --> src
+      --> controls (1)
+                --> default (2)
+                   --> defaul.html (3)
+                   --> default.js (4)
+                --> invoice (2)
+                   --> invoice.html (3)
+                   --> invoice.js (4)
+                --> samples.json (5)
+
+(1). This is where all our `reports samples` should be placed.
+
+(2). This is our sample folder and this folder will contains HTML and js file.
+
+(3). This is our sample `HTML` file.
+
+(4). This is our sample `JS` file.
+
+(5). This is our sample configuration file.
+
+```json
+{
+  "samples": [{
+      "routerPath": "default",
+      "sampleName": "Default Functionalities",
+      "directoryName": "default",
+      "imageDetails": {
+        "imageName": "default.png",
+        "isLandscape": false
+      },
+      "metaData": {
+        "description": "default sample",
+        "tags": "ej"
+      }
+    },
+    {
+      "routerPath": "invoice",
+      "sampleName": "Invoice",
+      "directoryName": "invoice",
+      "imageDetails": {
+        "imageName": "default.png",
+        "isLandscape": true
+      },
+      "metaData": {
+        "description": "invoice sample",
+        "tags": "ej"
+      }
+    }
+  ]
+} 
+
+```
+`samples` - This is an array which contains all samples information.
+
+`routerPath` - This is the our sample navigation path.
+
+`sampleName` - This is our sample name which will be rendered in table of contents.
+
+
+`directoryName` - This is our sample directory name.
+
+`imageDetails.imageName` - This is our sample image name which will be rendered in table of contents.
+
+Note : keep your sample images in `assets/sidebar` folder.
+
+`imageDetails.isLandscape` - if it is true, your sample image will be renderend in lansscape mode else it will be renderend in portrait mode.
+
+`metaData.description` - This is our sample description.
+
+`metaData.tags` - This is our sample important tags.
+
+## QuickStart 
+
+After completing prerequisite steps, Follow the below steps to run Reports JavaScript samples 
+
+Clone the repo from https://gitlab.syncfusion.com/data-science/reports-javascript-samples from `development` branch.
+
+
+Run `npm install` from the cloned root folder.
+
+
+Run `gulp serve` to serve the application
+
+## Gulp Tasks
+
+The below gulp tasks can be used to build and serve the documentation.
+
+
+Run the below command to serve the application. After running the command, Navigate to [localhost:9000](http://localhost:9000).
+
+```cmd
+    gulp serve
 ```
 
-### Run/Serve
+Run the below command to test ts lint.
 
-To run the samples, use the below command
-
-```bash
-npm run serve
+```cmd
+    gulp ts-lint
 ```
 
-## Online Demos
+Run the below command to test file name validation.
 
-Take a look at the Bold Reporting JavaScript live demo [here](https://demos.boldreports.com/home/index.html).
+Note: This task will throw error on using custom file names . For that, we need to include these names(need to have valid reason for using these custom names) in `customNames` array in `src/controls/samples.json` file.
 
-## Documentation
+```cmd
+    gulp file-validation
+```
 
-A complete Bold Reports documentation can be found on [Bold Reports Help](https://help.boldreports.com/embedded-reporting/javascript-reporting/).
+Run the below command to test ts lint and file name validation.
 
-## License
+```cmd
+    gulp test
+```
+## Pre-requisite for Including New Image for New Report
 
-Refer the [LICENSE](/LICENSE) file.
+kindly increase the background width `src/common/sidebar/sidebar.css` of css class 
 
-## Support and Feedback
+Portrait: `.ej-sidebar-content .ej-sb-toc .ej-sb-toc-card .ej-portrait-img` or
 
-* For any other queries, reach our [Bold Reports support team](mailto:support@boldreports.com) or [Feedback portal](https://www.boldreports.com/feedback/).
 
-* To renew the subscription, click [here](https://www.boldreports.com/pricing/on-premise) or contact our sales team at <https://www.boldreports.com/contact>.
+Landscape: `.ej-sidebar-content .ej-sb-toc .ej-sb-toc-card .ej-landscape-img`
+```cmd
+background-height = current-height + 100%;
+```

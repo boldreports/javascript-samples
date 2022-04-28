@@ -29,12 +29,29 @@
             }
         }
     </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K73VBT8');</script>
+    <!-- End Google Tag Manager -->
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
     <link href="../../../common/index.css" rel="stylesheet" />
 </head>
 
 <body>
     <div hidden id="reports-analytics" data-queue="Bold Reports - Demos - JavaScript"></div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K73VBT8"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <style>
         /* Report Viewer */
         .e-reportviewer .e-reportviewer-toolbarcontainer .e-reportviewer-toolbarul.e-show {
@@ -92,7 +109,39 @@
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelector(".splash").classList.add('e-hidden');
         document.querySelector('.ej-body.e-hidden').classList.remove('e-hidden');
+        setReportsHeight();
     });
+
+    window.addEventListener('resize', () => {
+       setReportsHeight();
+    });
+
+    if (location.href.includes('external-parameter-report')) {
+            var userAgent = window.navigator.userAgent;
+            var isMobile = /mobile/i.test(userAgent);
+            var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+            if (wheelEvent && !isMobile) {
+                window.addEventListener(wheelEvent, function () { }, { passive: false });
+            }
+    }
+
+    function setReportsHeight() {
+            if (location.href.includes('/preview') && location.href.includes('/external-parameter-report')) {
+                let style = document.getElementById('reports-style');
+                if (!style) {
+                    style = document.createElement('style');
+                    style.id = 'reports-style';
+                    document.body.appendChild(style);
+                }
+                style.textContent = `ej-sample{
+                display:block;
+                overflow: hidden;
+                height: ${window.innerHeight -
+                    (document.getElementsByClassName('ej-preview-content')[0].getBoundingClientRect().top - document.body.getBoundingClientRect().top)}px
+                }`;
+            }
+
+        }
 </script>
 
 </html>
