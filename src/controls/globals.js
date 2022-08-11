@@ -1,6 +1,6 @@
 window.Globals = {
-    SERVICE_URL: 'https://demos.boldreports.com/services/api/ReportViewerWebApi',
-    DESIGNER_SERVICE_URL: 'https://demos.boldreports.com/services/api/ReportDesignerWebApi',
+    SERVICE_URL: '/demos/services/api/ReportViewerWebApi',
+    DESIGNER_SERVICE_URL: '/demos/services/api/ReportDesignerWebApi',
     TOOLBAR_OPTIONS: {
         showToolbar: true,
         customGroups: [{
@@ -29,7 +29,7 @@ window.Globals = {
             if (location.hash.length < 1) {
                 rootPath = location.href.substring(0, location.href.indexOf('report-viewer/'));
             }
-            const reportPath = args.model.reportPath;
+            const reportPath = this.element[0].baseURI.lastIndexOf('external-parameter-report') !== -1 ? 'external-parameter-report' : this.element[0].baseURI.lastIndexOf('parameter-customization') !== -1 ? 'parameter-customization' : args.model.reportPath;
             const ReportDesignerPath = reportPath.indexOf('.rdlc') !== -1 ? 'report-designer/rdlc/' : 'report-designer/';
             window.open(`${rootPath}${ReportDesignerPath}?report-name=${reportPath}`,
                 location.href.indexOf('/preview') === -1 ? '_blank' : '_self');
