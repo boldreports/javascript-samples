@@ -3,13 +3,13 @@ const fs = require("fs");
 const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
 const shelljs = require('shelljs');
-const runSequence = require('run-sequence');
+const runSequence = require('gulp4-run-sequence');
 
-gulp.task('new-tab', function (callback) {
-  runSequence('new-tab-compilation', 'new-tab-generation', callback);
+gulp.task('new-tab', function (done) {
+  runSequence('new-tab-compilation', 'new-tab-generation', done);
 });
 
-gulp.task('new-tab-generation', function () {
+gulp.task('new-tab-generation', function (done) {
   let reportBaseDir = './demos/';
   shelljs.mkdir('-p', reportBaseDir);
 
@@ -53,7 +53,7 @@ gulp.task('new-tab-generation', function () {
 
   //reports-designer
   shelljs.cp('-r', `./build/templates/report-designer/`, `./demos`);
-  
+  done();
 });
 
 gulp.task('new-tab-compilation', function () {
