@@ -87,7 +87,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.ej-sb-header .ej-sb-right-side .ej-sb-divider{
+.ej-sb-header .ej-sb-right-side .ej-sb-divider {
     border-left: 1px solid rgb(196, 196, 196);
     height: 32px;
 }
@@ -96,28 +96,61 @@
     font-size: 20px;
     cursor: pointer;
     text-decoration: none;
-    margin: 0 20px 0px 10px;
+    margin: 0 10px 0px 10px;
     color: #333;
     opacity: 0.87;
 }
 
 .ej-sb-header .ej-sb-right-side a.ej-sb-button {
-    height: 32px;
+    height: 35px;
     font-size: 14px;
     font-weight: 500;
     opacity: 1;
-    margin-left: 20px;
     text-decoration: none;
-    padding: 5.5px 13px;
     cursor: pointer;
-    background-color: #ff5f23;
-    color: #ffffff;
-    border-radius: 2px;
+    text-align: center;
+    border-radius: 5px;
+    width: 125px;
 }
 
-.ej-sb-header .ej-sb-right-side a.ej-sb-button:hover {
-    background: #ff4801;
+
+/* header try-it-free and schedule-free-demo*/
+.ej-sb-right-side .nav-link {
+    padding: 0.4rem 0.5rem 1rem 0.5rem;
+    width: 200px;
+    border-radius: 5px;
+
+}
+
+.ej-sb-header .ej-sb-right-side a.ej-sb-button.nav-link.bold-schedule-demo {
+    border-color: #ff4800;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #ffffff;
+    color: #ff4800 !important;
+}
+
+.ej-sb-header .ej-sb-right-side a.ej-sb-button.nav-link.try-it-free {
+    background-color: #ff4800;
+    color: #ffffff !important;
+}
+
+.ej-sb-header .ej-sb-right-side a.ej-sb-button.nav-link.product-detail{
+    border-color: #ff4801;
+    background: white;
+    color: #ff4801;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
   }
+  .ej-sb-header .ej-sb-right-side a.ej-sb-button.nav-link.product-detail:hover{
+    background-color: #ff4800;
+    color: #ffffff !important;
+  }
+.ej-sb-header .ej-sb-right-side a.ej-sb-button.nav-link.bold-schedule-demo:hover {
+    background-color: #ff4800;
+    color: #ffffff !important;
+}
 
 .ej-sb-header .ej-sb-right-side .sb-icon-product:before {
     content: '\e707';
@@ -133,6 +166,6 @@
 
 @media only screen and (max-width: 850px) {
     .ej-sb-header .ej-sb-right-side {
-      display: none;
+        display: none;
     }
-  }
+}
