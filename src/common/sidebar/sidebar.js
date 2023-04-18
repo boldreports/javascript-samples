@@ -60,7 +60,7 @@ export class Sidebar {
 
     onHomeBtnClick() {
         let homePageUrl = location.origin.indexOf('demos.boldreports.com') !== -1 ? '/home/' : '/';
-        location.href = location.origin + homePageUrl;
+        location.href = location.origin + homePageUrl + 'javascript.html';
     }
 
     closest(element, selector) {

@@ -75,7 +75,7 @@ export class Header {
     getRouterPath(curPlatform, targetplatform, sampleName) {
         curPlatform = curPlatform.toLowerCase();
         targetplatform = targetplatform.toLowerCase();
-        const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1) ||
+        const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1 && targetplatform.indexOf('blazor') === -1) ||
             (curPlatform.indexOf('asp') >= 0 && targetplatform.indexOf('asp') >= 0);
         if (samePath) {
             return sampleName;
