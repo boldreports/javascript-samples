@@ -20,9 +20,9 @@ import './../../../node_modules/@boldreports/javascript-reporting-controls/Conte
 import '@boldreports/javascript-reporting-controls/Scripts/bold.report-designer.min';
 
 //barcode
-import './../extensions/report-item-extensions/barcode.css';
-import { EJBarcode } from './../extensions/report-item-extensions/barcode';
-import { EJQRBarcode } from './../extensions/report-item-extensions/qrbarcode';
+import './../extensions/report-item-extensions/barcode.reportitem.css';
+import { EJBarcode } from './../extensions/report-item-extensions/barcode.reportitem';
+import { EJQRBarcode } from './../extensions/report-item-extensions/qrbarcode.reportitem';
 
 let barcode = 'EJBarcode';
 let qrBarcode = 'EJQRBarcode';
