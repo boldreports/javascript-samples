@@ -5,11 +5,11 @@ const webpack = require('webpack');
 const shelljs = require('shelljs');
 const runSequence = require('gulp4-run-sequence');
 
-gulp.task('new-tab', function (done) {
+gulp.task('new-tab', (done)=>{
   runSequence('new-tab-compilation', 'new-tab-generation', done);
 });
 
-gulp.task('new-tab-generation', function (done) {
+gulp.task('new-tab-generation', (done)=>{
   let reportBaseDir = './demos/';
   shelljs.mkdir('-p', reportBaseDir);
 
@@ -22,12 +22,12 @@ gulp.task('new-tab-generation', function (done) {
     let sampleData = samples[i];
     let title = sampleData.metaData.title;
     if (!title) {
-        title = sampleData.sampleName;
+      title = sampleData.sampleName;
     }
     let sampleName = title;
     title = `${title} | Preview | JavaScript Report`;
     if (title.length < 45) {
-      title =  `${title} | Bold Reports`;
+      title = `${title} | Bold Reports`;
     }
     let fileName = sampleData.routerPath ? sampleData.routerPath : sampleData.basePath;
     let reportRouterPath = sampleData.routerPath ? sampleData.basePath + '/' + sampleData.routerPath : sampleData.basePath;
@@ -56,7 +56,7 @@ gulp.task('new-tab-generation', function (done) {
   done();
 });
 
-gulp.task('new-tab-compilation', function () {
+gulp.task('new-tab-compilation', ()=> {
   return gulp.src('.')
     .pipe(webpackStream(require('./templates/common/webpack.config'), webpack))
     .pipe(gulp.dest('demos/common'));

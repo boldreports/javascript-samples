@@ -6,7 +6,7 @@ gulp.task('build',(done)=>{
     runSequence('update-barcode' ,'clean', 'new-tab', done);
 });
 
-gulp.task('clean', function (done) {
+gulp.task('clean', (done)=>{
     shelljs.rm('-rf', 'dist');
     shelljs.rm('-rf', 'demos');
     done();
