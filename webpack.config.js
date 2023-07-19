@@ -49,5 +49,10 @@ module.exports = {
         new CopyWebpackPlugin([{
             from: 'demos'
         }])
-    ]
+    ],
+    resolve: {
+        alias: {
+            'jquery': require.resolve('jquery')
+        }
+    }
 };

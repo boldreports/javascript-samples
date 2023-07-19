@@ -3,10 +3,11 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./../webpack.config.js');
 const open = require('open');
-const port = 9000;
-const runSequence = require('gulp4-run-sequence');
-gulp.task('serve', function (done) {
-  runSequence('build');
+var argv = require('yargs').argv;
+const port = argv.port || 9000;
+
+
+gulp.task('serve-run',(done)=>{
   const server = new WebpackDevServer(webpack(config));
   server.listen(port, 'localhost', function (err) {
     if (err) {
@@ -17,3 +18,5 @@ gulp.task('serve', function (done) {
   });
   done();
 });
+
+gulp.task('serve', gulp.series('build','serve-run'));
