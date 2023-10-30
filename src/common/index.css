@@ -4,7 +4,7 @@
 @import './sidebar/sidebar.css';
 @import './ej2-buttons.min.css';
 @import './../../node_modules/prismjs/themes/prism.css';
-@import './../../node_modules/@boldreports/javascript-reporting-controls/Content/material/bold.reports.all.min.css';
+@import './../../node_modules/@boldreports/javascript-reporting-controls/Content/v2.0/tailwind-light/bold.report-viewer.min.css';
 
 
 /* loader */
@@ -292,6 +292,7 @@ ej-sidebar {
   height: 100%;
   display: inline-flex;
   width: 100%;
+  background-color: #f9fafb;
 }
 
 #r-w-container #r-w-sample-container {
@@ -337,7 +338,6 @@ ej-sidebar {
   display: block;
   width: 100px;
   height: 30px;
-  line-height: 30px;
   margin: 20px 0 0 124px;   
 }
 

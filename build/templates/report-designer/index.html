@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description"
-        content="The JavaScript bold report designer allows the end-users to arrange/customize the reports appearance in browsers. It helps to edit the {{sampleName}} for customer's application needs.">
+        content="The JavaScript Bold Report Designer allows the end-users to arrange/customize the reports appearance in browsers. It helps to edit the {{sampleName}} for customer's application needs.">
     <script>
         function validateBrowser() {
             var uaValidate = navigator.userAgent.match(/(MSIE |Trident.*rv[ :])([0-9]+)/);
@@ -22,20 +22,29 @@
             }
         }
     </script>
-    <script type="text/javascript" src="../scripts/common/ej2-base.min.js"></script>
-    <script type="text/javascript" src="../scripts/common/ej2-data.min.js"></script>
-    <script type="text/javascript" src="../scripts/common/ej2-pdf-export.min.js"></script>
-    <script type="text/javascript" src="../scripts/common/ej2-svg-base.min.js"></script>
-    <script type="text/javascript" src="../scripts/data-visualization/ej2-circulargauge.min.js"></script>
-    <script type="text/javascript" src="../scripts/data-visualization/ej2-lineargauge.min.js"></script>
-    <script type="text/javascript" src="../scripts/data-visualization/ej2-maps.min.js"></script>
-
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K73VBT8');</script>
+    <!-- End Google Tag Manager -->
     <link href="../favicon.ico" type="image/x-icon" rel="shortcut icon" />
     <link href="../common/index.css" rel="stylesheet" />
 </head>
 
 <body>
     <div hidden id="reports-analytics" data-queue="Bold Reports - Demos - JavaScript"></div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K73VBT8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="splash">
         <div class="message">JavaScript Reports</div>
         <div class="loader">

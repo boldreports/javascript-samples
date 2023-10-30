@@ -1,13 +1,18 @@
 import * as jquery from 'jquery';
 window['$'] = jquery;
 import './index.css';
-import './../controls/globals';
 import './../controls/rdlcData';
+import {
+    getRouterData
+} from './../common/router';
+import * as hasher from 'hasher';
 //report-viewer
-import '@boldreports/javascript-reporting-controls/Scripts/bold.report-viewer.min';
-//data-visualization
-import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.bulletgraph.min';
-import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.chart.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/common/bold.reports.common.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/common/bold.reports.widgets.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/bold.report-viewer.min';
+
+//globals
+import './../controls/globals';
 
 import 'bootstrap';
 import {
@@ -108,14 +113,14 @@ function setInnerText(selector, text) {
 function updateSampleDetails(sampleData) {
     setInnerText('.ej-main-body-content .ej-title', sampleData.sampleName);
     setInnerText('.ej-main-body-content .ej-meta-description', sampleData.metaData.description);
-   
+
     //Banner
     setInnerText('.ej-main-body-content .ad-header', data.default.banner.text);
     setInnerText('.ej-main-body-content .cnt-text-1', data.default.banner.features[0]);
     setInnerText('.ej-main-body-content .cnt-text-2', data.default.banner.features[1]);
     setInnerText('.ej-main-body-content .cnt-text-3', data.default.banner.features[2]);
     document.querySelector('.free-trial-url').setAttribute('href', data.default.banner.freeTrialUrl);
-    
+
 }
 
 
