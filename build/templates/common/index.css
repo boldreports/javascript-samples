@@ -208,7 +208,6 @@ body {
   display: block;
   width: 100px;
   height: 30px;
-  line-height: 30px;
   margin: 20px 0 0 124px;
 }
 
@@ -435,4 +434,8 @@ body {
   top: 48px;
   bottom: 0;
   right: 0;
+}
+
+#container_reportName {
+  visibility: hidden;
 }

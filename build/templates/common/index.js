@@ -2,7 +2,6 @@ import * as jquery from 'jquery';
 window['$'] = jquery;
 import * as data from './../../../src/controls/samples.json';
 window['reportSamples'] = data.default.samples;
-import './../../../src/controls/globals';
 import './../../../src/controls/rdlcData';
 
 //bootstrap
@@ -12,26 +11,27 @@ import './../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 //report-viewer
-import '@boldreports/javascript-reporting-controls/Scripts/bold.report-viewer.min';
-import './../../../node_modules/@boldreports/javascript-reporting-controls/Content/material/bold.reports.all.min.css';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/common/bold.reports.common.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/common/bold.reports.widgets.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/bold.report-viewer.min';
+import '@boldreports/javascript-reporting-controls/Content/v2.0/tailwind-light/bold.report-viewer.min.css';
 
 //report-designer
-import './../../../node_modules/@boldreports/javascript-reporting-controls/Content/material/bold.reportdesigner.min.css';
-import '@boldreports/javascript-reporting-controls/Scripts/bold.report-designer.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/bold.report-designer.min'
+import '@boldreports/javascript-reporting-controls/Content/v2.0/tailwind-light/bold.report-designer.min.css';
 
 //barcode
 import './../extensions/report-item-extensions/barcode.reportitem.css';
 import { EJBarcode } from './../extensions/report-item-extensions/barcode.reportitem';
 import { EJQRBarcode } from './../extensions/report-item-extensions/qrbarcode.reportitem';
 
+//globals
+import './../../../src/controls/globals';
+
 let barcode = 'EJBarcode';
 let qrBarcode = 'EJQRBarcode';
 window[barcode] = EJBarcode;
 window[qrBarcode] = EJQRBarcode;
-
-//data-visualization
-import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.bulletgraph.min';
-import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.chart.min';
 
 //code-mirror
 import 'codemirror/lib/codemirror';
