@@ -5,9 +5,9 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "test": "gulp test",
-    "postinstall": "gulp copy",
-    "build": "gulp build"
+    "build": "gulp production-build",
+    "serve": "gulp serve",
+    "postinstall": "gulp copy"
   },
   "devDependencies": {
     "@babel/cli": "7.2.3",
