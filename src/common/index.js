@@ -159,7 +159,7 @@ function setReportsHeight() {
         document.body.appendChild(style);
     }
     style.textContent = `ej-sample{
-      display: flex;
+      display: ${location.href.includes('/external-parameter-report')? 'block' : 'flex'};
       overflow: hidden;
       min-height: 600px;
     }
