@@ -29,8 +29,8 @@ $(function () {
         success: function (data) {
             startDate = new ejs.calendars.DatePicker({ value: new Date("1/1/2003"), width: "180px" });
             endDate = new ejs.calendars.DatePicker({ value: new Date("12/31/2003"), width: "180px" });
-            var productCategoryList = JSON.parse(data.ProductCategoryDetail);
-            var productSubCategoryList = JSON.parse(data.ProductSubCategoryDetail);
+            var productCategoryList = JSON.parse(data.productCategoryDetail);
+            var productSubCategoryList = JSON.parse(data.productSubCategoryDetail);
             var subCategoryDropDownList = productSubCategoryList.filter(({ ProductCategoryID }) => ProductCategoryID == 1);
             category = new ejs.dropdowns.DropDownList({
                 dataSource: productCategoryList,
