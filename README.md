@@ -45,7 +45,7 @@ npm run serve
 
 ## Online Demos
 
-Take a look at the Bold Reporting JavaScript live demo [here](https://demos.boldreports.com/home/index.html?utm_source=github&utm_medium=backlinks).
+Take a look at the Bold Reporting JavaScript live demo [here](https://demos.boldreports.com/home/javascript.html?utm_source=github&utm_medium=backlinks).
 
 ## Documentation
 
