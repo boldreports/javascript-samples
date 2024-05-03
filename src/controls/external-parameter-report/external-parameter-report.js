@@ -15,6 +15,8 @@ $(function () {
         exportItemClick: window.Globals.EXPORT_ITEM_CLICK,
         parameterSettings: { hideParameterBlock: true }
     });
+    ejs.popups.createSpinner({ target: document.getElementById("spinner-container") })
+    ejs.popups.showSpinner(document.getElementById("spinner-container"));
     var userAgent = window.navigator.userAgent;
     var isMobile = /mobile/i.test(userAgent);
     var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
@@ -69,6 +71,10 @@ $(function () {
             endDate.appendTo('#enddate');
             category.appendTo('#category');
             subCategory.appendTo('#subcategory');
+            ejs.popups.hideSpinner(document.getElementById("spinner-container"));
+            $("#r-w-property-title").css("display", "block");
+            $(".r-w-property").css("display", "inline-flex");
+            $(".r-w-genearte").css("display", "block");
         }
     });
     $("#update").click(function () {
