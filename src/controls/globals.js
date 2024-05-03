@@ -1,6 +1,7 @@
 window.Globals = {
-    SERVICE_URL: 'https://demos.boldreports.com/services/api/ReportViewerWebApi',
-    DESIGNER_SERVICE_URL: 'https://demos.boldreports.com/services/api/ReportDesignerWebApi',
+    SERVICE_URL: '/services/api/ReportViewerWebApi',
+    DESIGNER_SERVICE_URL: '/services/api/ReportDesignerWebApi',
+    REPORT_CONTROL_ID: 'container',
     TOOLBAR_OPTIONS: {
         showToolbar: true,
         items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Find,
@@ -20,11 +21,14 @@ window.Globals = {
             cssClass: "e-show"
         }]
     },
+    EXPORT_OPTIONS: {
+        exportOptions: ej.ReportViewer.ExportOptions.PPT
+    },
     DESTROY_REPORT: true,
-    EXPORT_ITEM_CLICK: function () {
+    EXPORT_ITEM_CLICK: function() {
         window.Globals.DESTROY_REPORT = false;
     },
-    EDIT_REPORT: function (args) {
+    EDIT_REPORT: function(args) {
         if (args.value == "edit-report") {
             let rootPath = location.href.split('#')[0];
             if (location.hash.length < 1) {
@@ -37,14 +41,37 @@ window.Globals = {
 
         }
     },
-    DESIGNER_TOOLBAR_RENDERING: function (args) {
-        if ($(args.target).hasClass('e-rptdesigner-toolbarcontainer')) {
-            var saveButton = ej.buildTag('li.e-rptdesigner-toolbarli e-designer-toolbar-align e-tooltxt', '', {}, {});
-            var saveIcon = ej.buildTag('span.e-rptdesigner-toolbar-icon e-toolbarfonticonbasic e-rptdesigner-toolbar-save e-li-item', '', {}, { title: 'Save' });
-            args.target.find('ul:first').append(saveButton.append(saveIcon));
+    DESIGNER_TOOLBAR_RENDERING: function(args) {
+        var reportControlId = window.Globals.REPORT_CONTROL_ID;
+        if (args && args.target && $(args.target).hasClass('e-rptdesigner-toolbarcontainer')) {
+            if (args.action === 'beforeCreate') {
+                args.items.splice(0, 0, {
+                    GroupName: 'customfileactionitems',
+                    GroupId: reportControlId + '_custom_fileaction_group',
+                    Items: [{
+                            prefixIcon: 'b-toolbar-item e-rptdesigner-toolbar-icon e-toolbarfonticonbasic e-rptdesigner-toolbar-new',
+                            tooltipText: 'New',
+                            id: reportControlId + '_custom_toolbar_btn_new',
+                            htmlAttributes: {
+                                id: reportControlId + '_custom_toolbar_new',
+                                'aria-label': 'New'
+                            }
+                        },
+                        {
+                            prefixIcon: 'b-toolbar-item e-toolbarfonticonbasic e-rptdesigner-toolbar-save',
+                            tooltipText: 'Save',
+                            id: reportControlId + '_custom_toolbar_btn_save',
+                            htmlAttributes: {
+                                id: reportControlId + '_custom_toolbar_save',
+                                'aria-label': 'Save'
+                            }
+                        }
+                    ]
+                });
+            }
         }
     },
-    DESIGNER_TOOLBAR_CLICK: function (args) {
+    DESIGNER_TOOLBAR_CLICK: function(args) {
         if (args.click === 'Save') {
             args.cancel = true;
             $('#container').data('boldReportDesigner').saveToDevice();

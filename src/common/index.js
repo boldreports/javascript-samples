@@ -115,7 +115,7 @@ function updateSampleDetails(sampleData) {
     setInnerText('.ej-main-body-content .ej-meta-description', sampleData.metaData.description);
 
     //Banner
-    setInnerText('.ej-main-body-content .ad-header', data.default.banner.text);
+    setInnerText('.ej-main-body-content .header', data.default.banner.text);
     setInnerText('.ej-main-body-content .cnt-text-1', data.default.banner.features[0]);
     setInnerText('.ej-main-body-content .cnt-text-2', data.default.banner.features[1]);
     setInnerText('.ej-main-body-content .cnt-text-3', data.default.banner.features[2]);
@@ -159,7 +159,7 @@ function setReportsHeight() {
         document.body.appendChild(style);
     }
     style.textContent = `ej-sample{
-      display: ${location.href.includes('/external-parameter-report')? 'block' : 'flex'};
+      display: block;
       overflow: hidden;
       min-height: 600px;
     }
