@@ -50,6 +50,7 @@ $(function () {
                     if (subCategory.value != null)
                         subCategory.clear();
                     subCategory.dataSource = categoryDropDownList;
+                    $('#update').prop('disabled', !subCategory.value);
                 }
             });
             subCategory = new ejs.dropdowns.MultiSelect({
@@ -65,7 +66,10 @@ $(function () {
                 width: "180px",
                 height: "30px",
                 value: [2],
-                placeholder: "Select Option"
+                placeholder: "Select Option",
+                change: function(args) {
+                    $('#update').prop('disabled', !args.value.length);
+                }
             });
             startDate.appendTo('#startdate');
             endDate.appendTo('#enddate');
