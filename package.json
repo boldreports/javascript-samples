@@ -34,7 +34,7 @@
     "gulp4-run-sequence": "1.0.1",
     "shelljs": "^0.8.4",
     "typo-js": "1.0.3",
-    "webpack": "4.29.6",
+    "webpack": "5.94.0",
     "webpack-cli": "3.2.3",
     "webpack-dev-server": "3.2.1",
     "webpack-stream": "5.2.1"
