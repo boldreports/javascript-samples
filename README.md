@@ -45,11 +45,11 @@ npm run serve
 
 ## Online Demos
 
-Take a look at the Bold Reporting JavaScript live demo [here](https://demos.boldreports.com/home/index.html).
+Take a look at the Bold Reporting JavaScript live demo [here](https://demos.boldreports.com/home/?utm_source=github&utm_medium=backlinks).
 
 ## Documentation
 
-A complete Bold Reports documentation can be found on [Bold Reports Help](https://help.boldreports.com/embedded-reporting/javascript-reporting/).
+A complete Bold Reports documentation can be found on [Bold Reports Help](https://help.boldreports.com/embedded-reporting/javascript-reporting/?utm_source=github&utm_medium=backlinks).
 
 ## License
 
@@ -57,6 +57,6 @@ Refer the [LICENSE](/LICENSE) file.
 
 ## Support and Feedback
 
-* For any other queries, reach our [Bold Reports support team](mailto:support@boldreports.com) or [Feedback portal](https://www.boldreports.com/feedback/).
+* For any other queries, reach our [Bold Reports support team](mailto:support@boldreports.com) or [Feedback portal](https://www.boldreports.com/feedback/?utm_source=github&utm_medium=backlinks).
 
-* To renew the subscription, click [here](https://www.boldreports.com/pricing/on-premise) or contact our sales team at <https://www.boldreports.com/contact>.
+* To renew the subscription, click [here](https://www.boldreports.com/pricing/on-premise/?utm_source=github&utm_medium=backlinks) or contact our sales team at <https://www.boldreports.com/contact>.
