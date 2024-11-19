@@ -14,7 +14,7 @@ export class MainContent {
         this.element.getElementsByClassName('ej-nav-new')[0].addEventListener('click', this.onTabBtnClick.bind(this));
         this.element.getElementsByClassName('ej-nav-prev')[0].addEventListener('click', this.onTabPrev.bind(this));
         this.element.getElementsByClassName('ej-nav-next')[0].addEventListener('click', this.onTabNext.bind(this));
-        $('a[data-toggle="tab"][href="#demo"]').on('shown.bs.tab', this.resizeReportViewer);
+        $('a[data-bs-toggle="tab"][href="#demo"]').on('shown.bs.tab', this.resizeReportViewer);
     }
 
     async fetchFile(path) {
