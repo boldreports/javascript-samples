@@ -41,7 +41,7 @@ $(function () {
             }
         }],
         toolbarSettings: {
-            items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
+            items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.New & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
         },
         ajaxBeforeLoad: onAjaxBeforeLoad,
         toolbarRendering: window.Globals.DESIGNER_TOOLBAR_RENDERING,
@@ -73,6 +73,15 @@ function controlCreate() {
                 }
             }
         });
+    }
+    if (reportName == "powerpoint-report.rdl") {
+      designerInst.setModel({
+        previewOptions: {
+          exportSettings: {
+            exportOptions: ej.ReportViewer.ExportOptions.PPT
+          }
+        }
+      });
     }
 }
 
