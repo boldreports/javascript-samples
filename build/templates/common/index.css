@@ -172,13 +172,8 @@ body {
 }
 
 #r-w-container #r-w-property-container {
-  height: auto;
+  height: 100%;
   width: 30%;
-  position: relative;
-}
-
-#r-w-property-container .e-spinner-pane {
-  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #r-w-property-name-category {
@@ -228,7 +223,6 @@ body {
 #r-w-property-enddate {
   display: inline-flex;
   margin-left: 20px;
-  margin-right: 20px;
 }
 
 #r-w-property-name-category,
