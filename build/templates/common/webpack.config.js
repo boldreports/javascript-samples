@@ -44,5 +44,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: `index.css`
         }),
-    ]
+    ],
+    resolve: {
+        alias: {
+            'jquery': require.resolve('jquery')
+        }
+    }
 };

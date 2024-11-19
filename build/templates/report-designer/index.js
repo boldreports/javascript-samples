@@ -16,6 +16,7 @@ $(function () {
         serviceUrl: window.Globals.DESIGNER_SERVICE_URL,
         // This event will be triggered when the Report Designer widget is created
         create: controlCreate,
+        permissionSettings: { dataSource: ej.ReportDesigner.Permission.All & ~ej.ReportDesigner.Permission.Create},
         reportItemExtensions: [{
             name: 'barcode',
             className: 'EJBarcode',
@@ -40,7 +41,7 @@ $(function () {
             }
         }],
         toolbarSettings: {
-            items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save
+            items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
         },
         ajaxBeforeLoad: onAjaxBeforeLoad,
         toolbarRendering: window.Globals.DESIGNER_TOOLBAR_RENDERING,
@@ -54,13 +55,25 @@ function controlCreate() {
     designerInst = $('#container').data('boldReportDesigner');
     designerInst.setModel({
         previewOptions: {
-            exportItemClick: window.Globals.EXPORT_ITEM_CLICK
+            exportItemClick: window.Globals.EXPORT_ITEM_CLICK,
+            toolbarSettings: {
+                items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Find
+            }
         }
     });
     if (reportName) {
-        designerInst.openReport(reportName);
+        designerInst.openReport(reportName.indexOf("external-parameter-report") !== -1 ? "product-line-sales.rdl" : reportName.indexOf("parameter-customization") !== -1 ? "product-line-sales.rdl" : reportName);
     }
-
+    if (reportName == "load-large-data.rdl") {
+        designerInst.setModel({
+            previewOptions: {
+                toolbarSettings: {
+                    items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print,
+                    toolbars: ej.ReportViewer.Toolbars.All & ~ej.ReportViewer.Toolbars.Vertical
+                }
+            }
+        });
+    }
 }
 
 function onAjaxBeforeLoad(args) {

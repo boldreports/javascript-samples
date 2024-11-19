@@ -66,31 +66,21 @@ export class Header {
             }
             platformSamplePath = this.getRouterPath(data.default.platform, targetPlatform, sampleName);
             const reportPath = routerData.reportRouterPath ? (platformBasePath + '/' + platformSamplePath) : platformSamplePath;
-            let url = location.origin.indexOf('demos.boldreports.com') !== -1 ? '/' : '/demos/';
-            window.open(location.origin + url + data.default.otherPlatforms[targetPlatform] + reportPath, '_self');
-
+            window.open(location.origin + "/" + data.default.otherPlatforms[targetPlatform] + reportPath, '_self');
         }
     }
 
     getRouterPath(curPlatform, targetplatform, sampleName) {
         curPlatform = curPlatform.toLowerCase();
         targetplatform = targetplatform.toLowerCase();
-        const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1) ||
+        const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1 && targetplatform.indexOf('blazor') === -1) ||
             (curPlatform.indexOf('asp') >= 0 && targetplatform.indexOf('asp') >= 0);
         if (samePath) {
             return sampleName;
         } else {
-            if (curPlatform.indexOf('asp') !== -1) {
                 return sampleName.split(/(?=[A-Z])/).map((name) => {
                     return name.toLowerCase();
                 }).join('-');
-
-            } else {
-                return sampleName.split(/-/).map((name) => {
-                    return name.charAt(0).toUpperCase() + name.slice(1);
-                }).join('');
-
-            }
         }
     }
 }

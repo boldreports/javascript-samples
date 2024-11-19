@@ -1,13 +1,18 @@
 import * as jquery from 'jquery';
 window['$'] = jquery;
 import './index.css';
-import './../controls/globals';
 import './../controls/rdlcData';
+import {
+    getRouterData
+} from './../common/router';
+import * as hasher from 'hasher';
 //report-viewer
-import '@boldreports/javascript-reporting-controls/Scripts/bold.report-viewer.min';
-//data-visualization
-import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.bulletgraph.min';
-import '@boldreports/javascript-reporting-controls/Scripts/data-visualization/ej.chart.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/common/bold.reports.common.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/common/bold.reports.widgets.min';
+import '@boldreports/javascript-reporting-controls/Scripts/v2.0/bold.report-viewer.min';
+
+//globals
+import './../controls/globals';
 
 import 'bootstrap';
 import {
@@ -49,7 +54,6 @@ export function onInit() {
         onResize();
     });
 }
-
 export function updateData(sampleData) {
     tocSelection(sampleData);
     updateSampleDetails(sampleData);
@@ -103,11 +107,20 @@ async function fetchFile(path) {
     return data;
 }
 
+function setInnerText(selector, text) {
+    document.querySelector(selector).innerText = text;
+}
 function updateSampleDetails(sampleData) {
-    let titleElement = document.querySelector('.ej-main-body-content .ej-title');
-    let metaDescriptionElement = document.querySelector('.ej-main-body-content .ej-meta-description');
-    titleElement.innerText = sampleData.sampleName;
-    metaDescriptionElement.innerText = sampleData.metaData.description;
+    setInnerText('.ej-main-body-content .ej-title', sampleData.sampleName);
+    setInnerText('.ej-main-body-content .ej-meta-description', sampleData.metaData.description);
+
+    //Banner
+    setInnerText('.ej-main-body-content .header', data.default.banner.text);
+    setInnerText('.ej-main-body-content .cnt-text-1', data.default.banner.features[0]);
+    setInnerText('.ej-main-body-content .cnt-text-2', data.default.banner.features[1]);
+    setInnerText('.ej-main-body-content .cnt-text-3', data.default.banner.features[2]);
+    document.querySelector('.free-trial-url').setAttribute('href', data.default.banner.freeTrialUrl);
+
 }
 
 
@@ -146,10 +159,13 @@ function setReportsHeight() {
         document.body.appendChild(style);
     }
     style.textContent = `ej-sample{
-      display:block;
+      display: block;
       overflow: hidden;
-      height: ${window.innerHeight -
-        (document.getElementById('parentTabContent').getBoundingClientRect().top - document.body.getBoundingClientRect().top)}px
+      min-height: 600px;
+    }
+    #container{
+        height: auto !important;
+        width: 100% !important;
     }`;
 }
 
@@ -182,15 +198,15 @@ function updateMetaData(sampleData) {
 
 function updateTab() {
     let sourceTab = document.querySelector('.ej-nav-item.source-tab');
-    let descTab = document.querySelector('.ej-nav-item.desc-tab');
+    //let descTab = document.querySelector('.ej-nav-item.desc-tab');
     if (window.matchMedia('(max-width:850px)').matches) {
         $('#parentTab li:first-child a').tab('show');
         sourceTab.classList.add('e-hidden');
-        descTab.classList.add('e-hidden');
+        //descTab.classList.add('e-hidden');
     } else {
         if (sourceTab.classList.contains('e-hidden')) {
             sourceTab.classList.remove('e-hidden');
-            descTab.classList.remove('e-hidden');
+            //descTab.classList.remove('e-hidden');
         }
     }
 }

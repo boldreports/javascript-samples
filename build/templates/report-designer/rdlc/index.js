@@ -16,6 +16,7 @@ $(function () {
         serviceUrl: window.Globals.DESIGNER_SERVICE_URL,
         // This event will be triggered when the Report Designer widget is created
         create: controlCreate,
+        permissionSettings: { dataSource: ej.ReportDesigner.Permission.All & ~ej.ReportDesigner.Permission.Create},
         reportItemExtensions: [{
             name: 'barcode',
             className: 'EJBarcode',
@@ -40,7 +41,7 @@ $(function () {
             }
         }],
         toolbarSettings: {
-            items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save
+            items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
         },
         ajaxBeforeLoad: onAjaxBeforeLoad,
         reportOpened: onReportOpened,
@@ -54,27 +55,16 @@ let isServerReoport;
 
 function controlCreate() {
     designerInst = $('#container').data('boldReportDesigner');
-    if (reportName == "load-large-data.rdlc") {
-        designerInst.setModel({
-            reportType: 'RDLC',
-            previewReport: previewReport,
-            previewOptions: {
-                exportItemClick: window.Globals.EXPORT_ITEM_CLICK,
-                toolbarSettings: {
-                    items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Export & ~ej.ReportViewer.ToolbarItems.Print
-                }
+    designerInst.setModel({
+        reportType: 'RDLC',
+        previewReport: previewReport,
+        previewOptions: {
+            exportItemClick: window.Globals.EXPORT_ITEM_CLICK,
+            toolbarSettings: {
+                items: ej.ReportViewer.ToolbarItems.All & ~ej.ReportViewer.ToolbarItems.Find
             }
-        });
-    }
-    else {
-        designerInst.setModel({
-            reportType: 'RDLC',
-            previewReport: previewReport,
-            previewOptions: {
-                exportItemClick: window.Globals.EXPORT_ITEM_CLICK
-            }
-        });
-    }
+        }
+    });
     if (reportName) {
         designerInst.openReport(reportName);
     }
@@ -93,10 +83,8 @@ function previewReport(args) {
         let reportPath = args.model.reportPath;
         reportPath = reportPath.indexOf('//') !== -1 ? reportPath.substring(2) : reportPath
         let reportNameWithoutExt = reportPath.split(".rdlc")[0];
-        if (reportNameWithoutExt != "load-large-data") {
-            datasource = rdlcData[reportNameWithoutExt];
-            args.dataSets = datasource;
-        }
+        datasource = rdlcData[reportNameWithoutExt];
+        args.dataSets = datasource;
         args.cancelDataInputDialog = true;
     }
 }

@@ -40,7 +40,7 @@ export class MainContent {
         let routerData = getRouterData(hasher.getHash());
         const sampleData = data.default.samples.filter((sample) => sample.routerPath === routerData.reportRouterPath && sample.basePath === routerData.reportBasePath)[0];
         const reportPath = sampleData.routerPath ? (sampleData.basePath + '/' + sampleData.routerPath) : sampleData.basePath;
-        window.open(`${location.href.split('#')[0]}${reportPath}/preview/`, '_blank');
+        window.open(`${location.href.split('#')[0]}${reportPath}/preview/`, '_blank', 'noreferrer');
     }
 
     onTabPrev() {

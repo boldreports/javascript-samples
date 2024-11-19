@@ -1,6 +1,6 @@
 # Bold Reports JavaScript samples
 
-Bold Reports JavaScript samples repository contains the `Report Viewer` and `Report Designer` samples. It empower your web application with feature-rich report preview, edit, and customization capabilities that allow you to explore data easily and make real-time decisions. Effortlessly print and export reports.
+Bold Reports JavaScript samples repository contains the [Report Viewer](https://www.boldreports.com/embedded-reporting/javascript-report-viewer?utm_source=github&utm_medium=backlinks) and [Report Designer](https://www.boldreports.com/embedded-reporting/javascript-report-designer?utm_source=github&utm_medium=backlinks) samples. It empower your web application with feature-rich report preview, edit, and customization capabilities that allow you to explore data easily and make real-time decisions. Effortlessly print and export reports.
 
 This section guides you to use the Bold Reports JavaScript samples in your applications.
 
@@ -45,11 +45,11 @@ npm run serve
 
 ## Online Demos
 
-Take a look at the Bold Reporting JavaScript live demo [here](https://demos.boldreports.com/home/index.html).
+Take a look at the Bold Reporting JavaScript live demo [here](https://demos.boldreports.com/home/?utm_source=github&utm_medium=backlinks).
 
 ## Documentation
 
-A complete Bold Reports documentation can be found on [Bold Reports Help](https://help.boldreports.com/embedded-reporting/javascript-reporting/).
+A complete Bold Reports documentation can be found on [Bold Reports Help](https://help.boldreports.com/embedded-reporting/javascript-reporting/?utm_source=github&utm_medium=backlinks).
 
 ## License
 
@@ -57,6 +57,6 @@ Refer the [LICENSE](/LICENSE) file.
 
 ## Support and Feedback
 
-* For any other queries, reach our [Bold Reports support team](mailto:support@boldreports.com) or [Feedback portal](https://www.boldreports.com/feedback/).
+* For any other queries, reach our [Bold Reports support team](mailto:support@boldreports.com) or [Feedback portal](https://www.boldreports.com/feedback/?utm_source=github&utm_medium=backlinks).
 
-* To renew the subscription, click [here](https://www.boldreports.com/pricing/on-premise) or contact our sales team at <https://www.boldreports.com/contact>.
+* To renew the subscription, click [here](https://www.boldreports.com/pricing/on-premise/?utm_source=github&utm_medium=backlinks) or contact our sales team at <https://www.boldreports.com/contact>.

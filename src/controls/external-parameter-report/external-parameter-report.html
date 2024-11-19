@@ -1,0 +1,69 @@
+<form>
+    <div id="r-w-container">
+        <div id="r-w-sample-container">
+            <ej-sample>
+                <div id="container"></div>
+            </ej-sample>
+        </div>
+        <div id="r-w-property-container">
+            <div id='spinner-container'></div>
+            <div id="r-w-property-title" style="display: none;">Parameters</div>
+            <div class="r-w-property" id="r-w-property-category" style="display: none;">
+                <div id="r-w-property-name-category"> Category</div>
+                <div id="r-w-property-value-category">
+                    <input type="text" id="category" />
+                </div>
+            </div>
+            <div class="r-w-property" id="r-w-property-subcategory" style="display: none;">
+                <div id="r-w-property-name">
+                    Sub Category
+                </div>
+                <div id="r-w-property-value-subcategory">
+                    <input type="text" id="subcategory" />
+                </div>
+            </div>
+            <div class="r-w-property" id="r-w-property-startdate" style="display: none;">
+                <div id="r-w-property-name">
+                    Start Date
+                </div>
+                <div id="r-w-property-value-startdate">
+                    <input id="startdate" />
+                </div>
+            </div>
+            <div class="r-w-property" id="r-w-property-enddate" style="display: none;">
+                <div id="r-w-property-name">
+                    End Date
+                </div>
+                <div id="r-w-property-value-enddate">
+                    <input id="enddate" />
+                </div>
+            </div>
+            <input type="button" class="r-w-genearte e-control e-btn e-lib e-primary"
+                id="update" value="View Report" style="display: none;" />
+        </div>
+    </div>
+</form>
+<div id="description">
+    <p>
+        The Product Line Sales RDL report represents the best performing sales people and stores using <a
+            href="https://help.boldreports.com/embedded-reporting/javascript-reporting/report-designer/designer-guide/report-items/tablix/"
+            target="_blank" rel="noreferrer">Tablix</a> and <a
+            href="https://help.boldreports.com/embedded-reporting/javascript-reporting/report-designer/designer-guide/report-items/chart/"
+            target="_blank" rel="noreferrer">Chart</a>
+        report items.
+    </p>
+    <ul>
+        <li>
+            The sales details are organized by category and sub-category of products using the concept of external
+            report parameters which is designed using <a href="https://ej2.syncfusion.com/javascript/documentation/api/drop-down-list"
+                target="_blank" rel="noreferrer">ejdropdownlist</a>. It allows users to filter Sub Category based on the selected
+            Category.
+        </li>
+        <li>Non cascading parameters namely start date and end date also used in this report.</li>
+    </ul>
+    <p>
+        More information about handling the report items can be found in this <a
+            href="https://help.boldreports.com/embedded-reporting/javascript-reporting/report-designer/designer-guide/report-items/"
+            target="_blank" rel="noreferrer">documentation</a> section.
+    </p>
+</div>

@@ -1,53 +1,102 @@
 <div class="ej-main-body-content">
-  <h1 class="ej-title"></h1>
-  <p class="ej-meta-description"></p>
-  <div id="parentTabContainer">
-    <ul class="nav ej-nav-header" id="parentTab" role="tablist">
-      <li class="ej-nav-item">
-        <a href="#demo" data-bs-toggle="tab" role="tab" aria-selected="true">
-          <Span class="ej-sb-icons ej-demo-icon"></Span><Span>DEMO</Span>
-        </a>
-      </li>
-      <li class="ej-nav-item source-tab">
-        <a href="#source" data-bs-toggle="tab" role="tab" aria-selected="false">
-          <Span class="ej-sb-icons ej-source-icon"></Span><Span>SOURCE</Span>
-        </a>
-      </li>
-      <li class="ej-nav-item desc-tab">
-        <a href="#ej-description" data-bs-toggle="tab" role="tab" aria-selected="false">
-          <Span class="ej-sb-icons ej-description-icon"></Span><Span>Description</Span>
-        </a>
-      </li>
-      <li class="ej-nav ej-nav-item ej-sb-icons">
-        <div class="new-tab ej-nav-sub-item">
-          <div class="ej-nav-new ej-nav-sub-item" title="Open in New Window" tabindex="0"></div>
-        </div>
-        <div class="ej-nav-prev ej-nav-sub-item" title="Previous Sample" tabindex="0"></div>
-        <div class="ej-nav-next ej-nav-sub-item" title="Next Sample" tabindex="0"></div>
-      </li>
-    </ul>
-    <div class="tab-content ej-tab-content" id="parentTabContent">
-      <div class="tab-pane ej-tab-pane" id="demo" role="tabpanel">
-        <ej-sample></ej-sample>
-      </div>
-      <div class="tab-pane" id="source" role="tabpanel">
-        <div id="childTabContainer">
-          <div class="tab-content ej-tab-content" id="childTabContent">
-            <div class="tab-pane ej-tab-pane js-content show active" id="js" role="tabpanel"></div>
-            <div class="tab-pane ej-tab-pane html-content" id="html" role="tabpanel"></div>
+  <div>
+    <h1 class="ej-title"></h1>
+    <p class="ej-meta-description"></p>
+    <div id="parentTabContainer">
+      <ul class="nav ej-nav-header" id="parentTab" role="tablist">
+        <li class="ej-nav-item">
+          <a href="#demo" data-ds-toggle="tab" role="tab" aria-selected="true">
+            <Span class="ej-sb-icons ej-demo-icon"></Span><Span>DEMO</Span>
+          </a>
+        </li>
+        <li class="ej-nav-item source-tab">
+          <a href="#source" data-ds-toggle="tab" role="tab" aria-selected="false">
+            <Span class="ej-sb-icons ej-source-icon"></Span><Span>SOURCE</Span>
+          </a>
+        </li>
+        <!-- <li class="ej-nav-item desc-tab">
+          <a href="#ej-description" data-ds-toggle="tab" role="tab" aria-selected="false">
+            <Span class="ej-sb-icons ej-description-icon"></Span><Span>Description</Span>
+          </a>
+        </li> -->
+        <li class="ej-nav ej-nav-item ej-sb-icons">
+          <div class="new-tab ej-nav-sub-item">
+            <div class="ej-nav-new ej-nav-sub-item" title="Open in New Window" tabindex="0"></div>
           </div>
-          <ul class="nav ej-nav-header" id="childtTab" role="tablist">
-            <li class="ej-nav-item">
-              <a href="#js" class="active js-header" data-bs-toggle="tab" role="tab" aria-selected="true"></a>
-            </li>
-            <li class="ej-nav-item">
-              <a class="html-header" href="#html" data-bs-toggle="tab" role="tab" aria-selected="false"></a>
-            </li>
-          </ul>
+          <div class="ej-nav-prev ej-nav-sub-item" title="Previous Sample" tabindex="0"></div>
+          <div class="ej-nav-next ej-nav-sub-item" title="Next Sample" tabindex="0"></div>
+        </li>
+      </ul>
+      <div class="tab-content ej-tab-content" id="parentTabContent">
+        <div class="tab-pane ej-tab-pane" id="demo" role="tabpanel">
+          <ej-sample></ej-sample>
         </div>
-      </div>
-      <div class="tab-pane ej-tab-pane" id="ej-description" role="tabpanel">
+        <div class="tab-pane" id="source" role="tabpanel">
+          <div id="childTabContainer">
+            <div class="tab-content ej-tab-content" id="childTabContent">
+              <div class="tab-pane ej-tab-pane js-content show active" id="js" role="tabpanel"></div>
+              <div class="tab-pane ej-tab-pane html-content" id="html" role="tabpanel"></div>
+            </div>
+            <ul class="nav ej-nav-header" id="childtTab" role="tablist">
+              <li class="ej-nav-item">
+                <a href="#js" class="active js-header" data-ds-toggle="tab" role="tab" aria-selected="true"></a>
+              </li>
+              <li class="ej-nav-item">
+                <a class="html-header" href="#html" data-ds-toggle="tab" role="tab" aria-selected="false"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="tab-pane ej-tab-pane" id="ej-description" role="tabpanel">
+        </div> -->
       </div>
     </div>
+  </div>
+  <!--Description section-->
+  <div>
+    <div class="tab-pane ej-tab-pane" id="ej-description" role="tabpanel"></div>
+  </div>
+  <!--Banner section-->
+
+    <div id="footer-banner">
+      <div id="banner-head" class="header"></div>
+      <div class="content-area" style="display: flex; flex-wrap: wrap;">
+        <div class="cnt-pt">
+          <!-- <div class="cnt-icon click-icon sb-icons sb-icon-icon-selection"></div> -->
+          <span class="tick-mark"></span>
+          <div class="cnt-text cnt-text-1"></div>
+        </div>
+        <div class="cnt-pt">
+          <!-- <div class="cnt-icon click-icon sb-icons sb-icon-icon-selection"></div> -->
+          <span class="tick-mark"></span>
+          <div class="cnt-text cnt-text-2"></div>
+        </div>
+        <div class="cnt-pt">
+          <!-- <div class="cnt-icon click-icon sb-icons sb-icon-icon-selection"></div> -->
+          <span class="tick-mark"></span>
+          <div class="cnt-text cnt-text-3"></div>
+        </div>
+      </div>
+      <a class="free-trial-url" target="_blank" rel="noreferrer">
+        <div class="free-trial">TRY IT FOR FREE</div>
+      </a>
+    </div>
+  <!--Footer section-->
+  <div class="ej-lp-footer">
+    <div class="ej-lp-footer-links">
+      <a href="https://help.boldreports.com/embedded-reporting/javascript-reporting/" target="_blank" rel="noreferrer">
+          Documentation
+      </a>
+      <a href="https://www.boldreports.com/blog" target="_blank" rel="noreferrer">
+          Blog
+      </a>
+      <a href="https://support.boldreports.com/" target="_blank" rel="noreferrer">
+          Support
+      </a>
+      <a href="https://www.boldreports.com/feedback" target="_blank" rel="noreferrer">
+          Feedback
+      </a>
+    </div>
+    <div class="ej-lp-footer-copyright">Copyright © 2001-2024 Syncfusion Inc.</div>
   </div>
 </div>
