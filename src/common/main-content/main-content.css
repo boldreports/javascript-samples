@@ -44,6 +44,7 @@
   align-items: center;
   color:#2b3a5c;
   border-bottom: 2px solid transparent;
+  text-decoration: none;
 }
 
 .ej-main-body-content .ej-nav-header .ej-nav-item a:hover {
