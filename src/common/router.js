@@ -1,4 +1,4 @@
-import * as data from '../controls/samples.json';
+import samplesData from '../controls/samples.json';
 import * as hasher from 'hasher';
 import {
     onInit,
@@ -14,7 +14,7 @@ export function routerInit() {
 
 function hashHandler(newHash, oldHash) {
     let sampleData;
-    let defaultSampleData = data.default.samples[0];
+    let defaultSampleData = samplesData.samples[0];
     let defaultReportPath = defaultSampleData.routerPath ? (defaultSampleData.basePath + '/' + defaultSampleData.routerPath) : defaultSampleData.basePath;
     if (oldHash === undefined) { //initial loading
         if (newHash === '') {
@@ -22,7 +22,7 @@ function hashHandler(newHash, oldHash) {
             sampleData = defaultSampleData;
         } else {
             let routerData = getRouterData(newHash);
-            sampleData = data.default.samples.filter((sample) => sample.routerPath === routerData.reportRouterPath && sample.basePath === routerData.reportBasePath)[0];
+            sampleData = samplesData.samples.filter((sample) => sample.routerPath === routerData.reportRouterPath && sample.basePath === routerData.reportBasePath)[0];
         }
     } else {
         if (newHash && oldHash) { //sample switching
@@ -32,7 +32,7 @@ function hashHandler(newHash, oldHash) {
                 reportInstance.destroy();
             }
             let routerData = getRouterData(newHash);
-            sampleData = data.default.samples.filter((sample) => sample.routerPath === routerData.reportRouterPath && sample.basePath === routerData.reportBasePath)[0];
+            sampleData = samplesData.samples.filter((sample) => sample.routerPath === routerData.reportRouterPath && sample.basePath === routerData.reportBasePath)[0];
         }
     }
     if (!sampleData) {

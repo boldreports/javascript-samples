@@ -3,7 +3,7 @@ var shelljs = require('shelljs');
 const runSequence = require('gulp4-run-sequence');
 
 gulp.task('build',(done)=>{
-    runSequence('update-barcode' ,'clean', 'new-tab', done);
+    runSequence('update-extensions-export', 'clean', 'new-tab', done);
 });
 
 gulp.task('clean', (done)=>{
