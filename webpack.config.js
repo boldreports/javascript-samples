@@ -31,9 +31,7 @@ module.exports = {
         },
         {
             test: /\.(png|svg|jpg|gif|cur|ttf|eot|woff)$/,
-            use: [{
-                loader: 'file-loader'
-            }]
+            type: 'asset/resource'
         }
         ]
     },
@@ -46,9 +44,11 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: `[name].css`
         }),
-        new CopyWebpackPlugin([{
-            from: 'demos'
-        }])
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'demos'},
+            ]
+        })
     ],
     resolve: {
         alias: {

@@ -25,7 +25,7 @@ import {
     MainContent
 } from './main-content/main-content';
 import Prism from 'prismjs';
-import * as data from '../controls/samples.json';
+import samplesData from '../controls/samples.json';
 import {
     routerInit
 } from './router';
@@ -69,7 +69,8 @@ function onResize() {
 }
 
 function tocSelection(sampleData) {
-    let ele = document.querySelectorAll('.ej-sb-toc-card')[data.default.samples.indexOf(sampleData)];
+    let samples = samplesData.samples;
+    let ele = document.querySelectorAll('.ej-sb-toc-card')[samples.indexOf(sampleData)];
     let previousSelected = document.querySelector('.toc-selected');
     if (previousSelected) {
         previousSelected.classList.remove('toc-selected')
@@ -111,15 +112,16 @@ function setInnerText(selector, text) {
     document.querySelector(selector).innerText = text;
 }
 function updateSampleDetails(sampleData) {
+    let banner = samplesData.banner;
     setInnerText('.ej-main-body-content .ej-title', sampleData.sampleName);
     setInnerText('.ej-main-body-content .ej-meta-description', sampleData.metaData.description);
 
     //Banner
-    setInnerText('.ej-main-body-content .header', data.default.banner.text);
-    setInnerText('.ej-main-body-content .cnt-text-1', data.default.banner.features[0]);
-    setInnerText('.ej-main-body-content .cnt-text-2', data.default.banner.features[1]);
-    setInnerText('.ej-main-body-content .cnt-text-3', data.default.banner.features[2]);
-    document.querySelector('.free-trial-url').setAttribute('href', data.default.banner.freeTrialUrl);
+    setInnerText('.ej-main-body-content .header', banner.text);
+    setInnerText('.ej-main-body-content .cnt-text-1', banner.features[0]);
+    setInnerText('.ej-main-body-content .cnt-text-2', banner.features[1]);
+    setInnerText('.ej-main-body-content .cnt-text-3', banner.features[2]);
+    document.querySelector('.free-trial-url').setAttribute('href', banner.freeTrialUrl);
 
 }
 

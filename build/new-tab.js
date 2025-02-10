@@ -36,7 +36,7 @@ gulp.task('new-tab-generation', (done)=>{
     let bodyContent = fs.readFileSync(`${reportBaseDir + reportRouterPath}/${fileName}.html`, 'utf8');
     let content = htmlTemplate
       .replace('{{body}}', bodyContent)
-      .replace('{{title}}', title)
+      .replace(/{{title}}/g, title)
       .replace('{{sampleName}}', sampleName);
     shelljs.mkdir('-p', `${reportBaseDir + reportRouterPath}/preview`);
     fs.writeFileSync(`${reportBaseDir + reportRouterPath}/preview/index.html`, content, {

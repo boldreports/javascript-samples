@@ -1,7 +1,7 @@
 import {
     getRouterData
 } from './../router';
-import * as data from '../../controls/samples.json';
+import samplesData from './../../controls/samples.json';
 import * as hasher from 'hasher';
 
 export class MainContent {
@@ -15,6 +15,7 @@ export class MainContent {
         this.element.getElementsByClassName('ej-nav-prev')[0].addEventListener('click', this.onTabPrev.bind(this));
         this.element.getElementsByClassName('ej-nav-next')[0].addEventListener('click', this.onTabNext.bind(this));
         $('a[data-bs-toggle="tab"][href="#demo"]').on('shown.bs.tab', this.resizeReportViewer);
+        this.element.getElementsByClassName('ej-lp-footer-copyright')[0].textContent = `Copyright © 2001 - ${samplesData.copyrightYear} Syncfusion Inc.`;
     }
 
     async fetchFile(path) {
@@ -37,15 +38,16 @@ export class MainContent {
     }
 
     onTabBtnClick() {
+        let samples = samplesData.samples
         let routerData = getRouterData(hasher.getHash());
-        const sampleData = data.default.samples.filter((sample) => sample.routerPath === routerData.reportRouterPath && sample.basePath === routerData.reportBasePath)[0];
+        const sampleData = samples.filter((sample) => sample.routerPath === routerData.reportRouterPath && sample.basePath === routerData.reportBasePath)[0];
         const reportPath = sampleData.routerPath ? (sampleData.basePath + '/' + sampleData.routerPath) : sampleData.basePath;
         window.open(`${location.href.split('#')[0]}${reportPath}/preview/`, '_blank', 'noreferrer');
     }
 
     onTabPrev() {
         this.togglePopup();
-        let samples = data.default.samples;
+        let samples = samplesData.samples;
         const curRouterData = this.getCurRouterData();
         const curRouterIndex = curRouterData.curIndex;
         const sampleData = curRouterData.isFirst ? samples[data.samples.length - 1] : samples[curRouterIndex - 1];
@@ -55,7 +57,7 @@ export class MainContent {
 
     onTabNext() {
         this.togglePopup();
-        let samples = data.default.samples;
+        let samples = samplesData.samples;
         const curRouterData = this.getCurRouterData();
         const curRouterIndex = curRouterData.curIndex;
         const sampleData = curRouterData.isLast ? samples[0] : samples[curRouterIndex + 1];
@@ -69,7 +71,7 @@ export class MainContent {
             isFirst: undefined,
             isLast: undefined
         };
-        let samples = data.default.samples;
+        let samples = samplesData.samples;
         let routerData = getRouterData(hasher.getHash());
         samples.some((sample, index) => {
             if (sample.routerPath === routerData.reportRouterPath && sample.basePath === routerData.reportBasePath) {

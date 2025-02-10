@@ -1,7 +1,7 @@
 import {
     getRouterData
 } from './../router';
-import * as data from '../../controls/samples.json';
+import samplesData from '../../controls/samples.json';
 import * as hasher from 'hasher';
 
 export class Header {
@@ -11,10 +11,10 @@ export class Header {
 
     async init() {
         this.element.innerHTML = await this.fetchFile('src/common/header/header.html');
-        let otherPlatforms = Object.keys(data.default.otherPlatforms);
+        let otherPlatforms = Object.keys(samplesData.otherPlatforms);
         let dropDownItems = this.element.querySelector('.dropdown-menu');
         dropDownItems.addEventListener('click', this.platformSwitcher.bind(this));
-        this.createdropdownItem(data.default.platform, dropDownItems, true);
+        this.createdropdownItem(samplesData.platform, dropDownItems, true);
         for (let i = 0; i < otherPlatforms.length; i++) {
             this.createdropdownItem(otherPlatforms[i].trim(), dropDownItems);
         }
@@ -62,11 +62,11 @@ export class Header {
             let platformSamplePath;
             const sampleName = routerData.reportRouterPath ? routerData.reportRouterPath : routerData.reportBasePath;
             if (routerData.reportRouterPath) {
-                platformBasePath = this.getRouterPath(data.default.platform, targetPlatform, routerData.reportBasePath);
+                platformBasePath = this.getRouterPath(samplesData.platform, targetPlatform, routerData.reportBasePath);
             }
-            platformSamplePath = this.getRouterPath(data.default.platform, targetPlatform, sampleName);
+            platformSamplePath = this.getRouterPath(samplesData.platform, targetPlatform, sampleName);
             const reportPath = routerData.reportRouterPath ? (platformBasePath + '/' + platformSamplePath) : platformSamplePath;
-            window.open(location.origin + "/" + data.default.otherPlatforms[targetPlatform] + reportPath, '_self');
+            window.open(location.origin + "/" + samplesData.otherPlatforms[targetPlatform] + reportPath, '_self');
         }
     }
 

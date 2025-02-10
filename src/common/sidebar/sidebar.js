@@ -1,4 +1,4 @@
-import * as data from '../../controls/samples.json';
+import samplesData from '../../controls/samples.json';
 import * as hasher from 'hasher';
 
 export class Sidebar {
@@ -7,7 +7,7 @@ export class Sidebar {
     }
 
     async init() {
-        let samples = data.default.samples;
+        let samples = samplesData.samples;
         this.element.innerHTML = await this.fetchFile('src/common/sidebar/sidebar.html');
         let toc = this.element.getElementsByClassName('ej-sb-toc')[0];
         toc.addEventListener('mousedown', this.onTocClick.bind(this));
@@ -52,7 +52,7 @@ export class Sidebar {
         let ele = this.closest(e.target, '.ej-sb-toc-card');
         if (ele) {
             let index = ele.getAttribute('data-uid');
-            let sampleData = data.default.samples[index];
+            let sampleData = samplesData.samples[index];
             const reportPath = sampleData.routerPath ? (sampleData.basePath + '/' + sampleData.routerPath) : sampleData.basePath;
             hasher.setHash(reportPath);
         }
