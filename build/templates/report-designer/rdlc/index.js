@@ -11,12 +11,13 @@ if (reportName) {
 }
 
 $(function () {
+    var url = location.host;
     $("#container").boldReportDesigner({
         // Specifies the URL of the WebAPI service. It will be used for processing the report.
         serviceUrl: window.Globals.DESIGNER_SERVICE_URL,
         // This event will be triggered when the Report Designer widget is created
         create: controlCreate,
-        permissionSettings: { dataSource: ej.ReportDesigner.Permission.All & ~ej.ReportDesigner.Permission.Create},
+        permissionSettings: url.indexOf("demos.boldreports.com") !== -1 ? { dataSource: ej.ReportDesigner.Permission.All & ~ej.ReportDesigner.Permission.Create } : { dataSource: ej.ReportDesigner.Permission.All },
         reportItemExtensions: [{
             name: 'barcode',
             className: 'EJBarcode',
@@ -39,9 +40,31 @@ $(function () {
                 description: 'Display the barcode lines as report item.',
                 title: '2D Barcode'
             }
+        }, {
+            name: 'ESignature',
+            className: 'EJSignature',
+            imageClass: 'customitem-signature',
+            displayName: 'Electronic',
+            category: 'Signature',
+            toolTip:{
+                requirements: 'Add a report item to the designer area.',
+                description: 'This report item is used to add a graphic signature.',
+                title: 'Signature'
+            }
+        }, {
+            name: 'Shape',
+            className: 'EJShape',
+            imageClass: 'customitem-shape',
+            displayName: 'Shape',
+            category: 'Shapes',
+            toolTip: {
+                requirements: 'Add a report item to the designer area',
+                description: 'Display the different types of shapes as report item',
+                title: 'Shapes'
+            }
         }],
         toolbarSettings: {
-            items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
+            items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.New & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
         },
         ajaxBeforeLoad: onAjaxBeforeLoad,
         reportOpened: onReportOpened,
@@ -102,7 +125,9 @@ function updateDescription() {
     metaDes = metaDes.replace(/{{sampleName}}/g, title);
     document.getElementsByName('description')[0].content = metaDes;
     title += ' | JavaScript Report Designer';
-    document.title = title.length < 45 ? title += ' | Bold Reports' : title;
+    const titleWithBoldReports = (title.length < 45) ? title += ' | Bold Reports' : title;
+    document.title = titleWithBoldReports;
+    document.querySelector('meta[property="og:title"]').setAttribute('content', titleWithBoldReports);
 }
 
 function getReportName() {

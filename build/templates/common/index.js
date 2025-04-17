@@ -1,7 +1,7 @@
 import * as jquery from 'jquery';
 window['$'] = jquery;
-import * as data from './../../../src/controls/samples.json';
-window['reportSamples'] = data.default.samples;
+import samplesData from './../../../src/controls/samples.json';
+window['reportSamples'] = samplesData.samples;
 import './../../../src/controls/rdlcData';
 
 //bootstrap
@@ -25,6 +25,16 @@ import './../extensions/report-item-extensions/barcode.reportitem.css';
 import { EJBarcode } from './../extensions/report-item-extensions/barcode.reportitem';
 import { EJQRBarcode } from './../extensions/report-item-extensions/qrbarcode.reportitem';
 
+//signature
+import './../extensions/report-item-extensions/signature.reportitem.css';
+import './../extensions/report-item-extensions/signature.dialog.css';
+import { EJSignature } from './../extensions/report-item-extensions/signature.reportitem';
+import { SignatureDialog } from './../extensions/report-item-extensions/signature.dialog';
+
+//shape
+import './../extensions/report-item-extensions/shape.reportitem.css';
+import { EJShape } from './../extensions/report-item-extensions/shape.reportitem';
+
 //globals
 import './../../../src/controls/globals';
 
@@ -32,6 +42,14 @@ let barcode = 'EJBarcode';
 let qrBarcode = 'EJQRBarcode';
 window[barcode] = EJBarcode;
 window[qrBarcode] = EJQRBarcode;
+
+let signature = 'EJSignature';
+let signatureDialog = 'SignatureDialog';
+window[signature] = EJSignature;
+window[signatureDialog] = SignatureDialog;
+
+let shape = 'EJShape';
+window[shape] = EJShape;
 
 //code-mirror
 import 'codemirror/lib/codemirror';
@@ -45,9 +63,8 @@ import './../../../node_modules/codemirror/addon/hint/show-hint.css';
 import * as CodeMirror from 'codemirror';
 window['CodeMirror'] = CodeMirror;
 
-$(function () {
-    let url = location.origin.indexOf('demos.boldreports.com') !== -1 ? '/' : '/demos/';
-    document.getElementById('home_page').setAttribute('href', url + 'javascript/#/');
+$(function() {
+    document.getElementById('home_page').setAttribute('href', '/javascript/#/');
 });
 
 window.addEventListener('beforeunload', () => {

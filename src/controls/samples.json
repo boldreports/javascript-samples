@@ -23,7 +23,7 @@
       "Intuitive drag-and-drop widgets",
       "Hassle-free licensing"
     ],
-    "freeTrialUrl": "https://app.boldid.net/reporting/embedded/register?plan=194&evaluation=v2&leadsource=demos.boldreports.com&gclid=&referrerroriginurl=https://demos.boldreports.com/pricing&secondaryreferraloriginurl=https://demos.boldreports.com/&host=server&quantity=1"
+    "freeTrialUrl": "https://app.boldid.net/register/reports/enterprise?evaluation=v2&leadsource=demos.boldreports.com&gclid=&referrerroriginurl=https://demos.boldreports.com/pricing&secondaryreferraloriginurl=https://demos.boldreports.com/&host=server&quantity=1"
   },
   "copyrightYear": "2025",
   "samples": [
@@ -436,7 +436,6 @@
     {
       "routerPath": "cmr-report",
       "sampleName": "CMR Report",
-      "status": "New",
       "basePath": "report-viewer",
       "directoryName": "cmr-report",
       "imageDetails": {
@@ -452,7 +451,6 @@
       "sampleName": "Infographics Report",
       "basePath": "report-viewer",
       "directoryName": "infographics-report",
-      "status": "New",
       "imageDetails": {
         "isLandscape": false,
         "index": 17
