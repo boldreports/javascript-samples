@@ -62,6 +62,29 @@ $(function () {
                 description: 'Display the different types of shapes as report item',
                 title: 'Shapes'
             }
+        }, {
+            name: 'pdfdocument',
+            className: 'EJPdfDocument',
+            imageClass: 'customitem-pdfdocument',
+            displayName: 'PDF',
+            category: 'Documents',
+            toolTip: {
+                requirements: 'Add a report item to the designer area.',
+                description: 'Display the pdf document content in the report',
+                title: 'PDF'
+            },
+            allowHeaderFooter: false
+        }, {
+            name: 'htmldocument',
+            className: 'EJHtmlDocument',
+            imageClass: 'customitem-htmldocument',
+            displayName: 'Html',
+            category: 'Documents',
+            toolTip: {
+                requirements: 'Add a report item to the designer area.',
+                description: 'This report item used to process the html markup text and url',
+                title: 'Html'
+            },
         }],
         toolbarSettings: {
             items: ej.ReportDesigner.ToolbarItems.All & ~ej.ReportDesigner.ToolbarItems.New & ~ej.ReportDesigner.ToolbarItems.Save & ~ej.ReportDesigner.ToolbarItems.Open
