@@ -25,6 +25,11 @@ import './../extensions/report-item-extensions/barcode.reportitem.css';
 import { EJBarcode } from './../extensions/report-item-extensions/barcode.reportitem';
 import { EJQRBarcode } from './../extensions/report-item-extensions/qrbarcode.reportitem';
 
+//Document
+import './../extensions/report-item-extensions/document.reportitem.css';
+import { EJPdfDocument } from './../extensions/report-item-extensions/pdfdocument.reportitem';
+import { EJHtmlDocument } from './../extensions/report-item-extensions/htmldocument.reportitem';
+
 //signature
 import './../extensions/report-item-extensions/signature.reportitem.css';
 import './../extensions/report-item-extensions/signature.dialog.css';
@@ -50,6 +55,11 @@ window[signatureDialog] = SignatureDialog;
 
 let shape = 'EJShape';
 window[shape] = EJShape;
+
+let pdfDocument = 'EJPdfDocument';
+let htmlDocument = 'EJHtmlDocument';
+window[pdfDocument] = EJPdfDocument;
+window[htmlDocument] = EJHtmlDocument;
 
 //code-mirror
 import 'codemirror/lib/codemirror';
