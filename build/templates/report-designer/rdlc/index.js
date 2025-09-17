@@ -150,7 +150,6 @@ function updateDescription() {
     title += ' | JavaScript Report Designer';
     const titleWithBoldReports = (title.length < 45) ? title += ' | Bold Reports' : title;
     document.title = titleWithBoldReports;
-    document.querySelector('meta[property="og:title"]').setAttribute('content', titleWithBoldReports);
 }
 
 function getReportName() {
