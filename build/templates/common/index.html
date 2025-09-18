@@ -100,7 +100,7 @@
     }
 
     function setReportsHeight() {
-        if (location.href.includes('/preview') && location.href.includes('/external-parameter-report')) {
+        if (isExternalParameter()) {
             let style = document.getElementById('reports-style');
             if (!style) {
                 style = document.createElement('style');
@@ -115,6 +115,13 @@
                 }`;
         }
 
+    }
+    function isExternalParameter() {
+        const externalParameterSamples = [
+            '/external-parameter-report',
+            '/multi-language-report'
+        ];
+        return externalParameterSamples.some(path => location.href.includes(path)) && location.href.includes('/preview');
     }
 </script>
 

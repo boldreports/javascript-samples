@@ -181,6 +181,12 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+#r-w-property-languages {
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 39px;
+}
+
 #r-w-property-name-category {
   margin-top: 5px;
 }
@@ -265,6 +271,8 @@ body {
   border-bottom: 1px solid #c8c8c8;
 }
 
+#languages_hidden,
+#languages_dropdown,
 #category_hidden,
 #category_dropdown,
 #subcategory_hidden,
@@ -296,7 +304,8 @@ body {
 @media only screen and (max-width: 1080px) {
 
   #r-w-property-name,
-  #r-w-property-name-category {
+  #r-w-property-name-category,
+  #r-w-property-languages {
     display: none;
   }
 
