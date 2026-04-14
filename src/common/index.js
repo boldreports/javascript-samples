@@ -20,6 +20,54 @@ import '@boldreports/javascript-reporting-controls/Scripts/v2.0/localization/l10
 import '@boldreports/javascript-reporting-controls/Scripts/v2.0/localization/l10n/ej.localetexts.he-IL.min.js';
 import '@boldreports/javascript-reporting-controls/Scripts/v2.0/localization/l10n/ej.localetexts.ru-RU.min.js';
 
+
+
+//barcode
+import '../../build/templates/extensions/report-item-extensions/barcode.reportitem.css';
+import { EJBarcode } from '../../build/templates/extensions/report-item-extensions/barcode.reportitem';
+import { EJQRBarcode } from '../../build/templates/extensions/report-item-extensions/qrbarcode.reportitem';
+
+//Document
+import '../../build/templates/extensions/report-item-extensions/document.reportitem.css';
+import { EJPdfDocument } from '../../build/templates/extensions/report-item-extensions/pdfdocument.reportitem';
+import { EJHtmlDocument } from '../../build/templates/extensions/report-item-extensions/htmldocument.reportitem';
+
+//signature
+import '../../build/templates/extensions/report-item-extensions/signature.reportitem.css';
+import '../../build/templates/extensions/report-item-extensions/signature.dialog.css';
+import { EJSignature } from '../../build/templates/extensions/report-item-extensions/signature.reportitem';
+import { SignatureDialog } from '../../build/templates/extensions/report-item-extensions/signature.dialog';
+
+//shape
+import '../../build/templates/extensions/report-item-extensions/shape.reportitem.css';
+import { EJShape } from '../../build/templates/extensions/report-item-extensions/shape.reportitem';
+
+//PDF signature
+import '../../build/templates/extensions/report-item-extensions/pdf.signature.reportitem.css';
+import { EJPDFSignature } from '../../build/templates/extensions/report-item-extensions/pdf.signature.reportitem';
+
+let barcode = 'EJBarcode';
+let qrBarcode = 'EJQRBarcode';
+window[barcode] = EJBarcode;
+window[qrBarcode] = EJQRBarcode;
+
+let signature = 'EJSignature';
+let signatureDialog = 'SignatureDialog';
+window[signature] = EJSignature;
+window[signatureDialog] = SignatureDialog;
+
+let shape = 'EJShape';
+window[shape] = EJShape;
+
+let pdfDocument = 'EJPdfDocument';
+let htmlDocument = 'EJHtmlDocument';
+window[pdfDocument] = EJPdfDocument;
+window[htmlDocument] = EJHtmlDocument;
+
+let pdfSignature = 'EJPDFSignature';
+window[pdfSignature] = EJPDFSignature;
+
+
 //globals
 import './../controls/globals';
 

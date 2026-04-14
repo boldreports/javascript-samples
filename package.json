@@ -1,6 +1,6 @@
 {
   "name": "javascript-samples",
-  "version": "12.1.12",
+  "version": "13.1.26",
   "description": "",
   "author": "",
   "license": "ISC",
@@ -32,15 +32,15 @@
     "gulp4-run-sequence": "1.0.1",
     "shelljs": "^0.8.4",
     "typo-js": "1.0.3",
-    "webpack": "5.97.1",
+    "webpack": "5.106.1",
     "webpack-cli": "6.0.1",
     "webpack-dev-server": "5.2.1",
     "webpack-stream": "7.0.0"
   },
   "dependencies": {
     "@babel/polyfill": "7.2.5",
-    "@boldreports/javascript-reporting-controls": "12.1.12",
-    "@boldreports/javascript-reporting-extensions": "12.1.12",
+    "@boldreports/javascript-reporting-controls": "13.1.26",
+    "@boldreports/javascript-reporting-extensions": "13.1.26",
     "codemirror": "5.58.2",
     "hasher": "1.2.0",
     "jquery": "3.6.0",
