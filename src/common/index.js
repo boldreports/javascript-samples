@@ -87,6 +87,7 @@ import {
     routerInit
 } from './router';
 let header, sidebar, maincontent;
+import './tracking';
 
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded, false);
 

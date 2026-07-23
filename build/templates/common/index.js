@@ -88,6 +88,7 @@ import './../../../node_modules/codemirror/addon/hint/show-hint.css';
 
 import * as CodeMirror from 'codemirror';
 window['CodeMirror'] = CodeMirror;
+import './../../../src/common/tracking';
 
 $(function() {
     document.getElementById('home_page').setAttribute('href', '/javascript/#/');
