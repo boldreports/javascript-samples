@@ -1,34 +1,39 @@
 <div class="ej-main-body-content">
   <div>
-    <h1 class="ej-title"></h1>
-    <p class="ej-meta-description"></p>
-    <div id="parentTabContainer">
-      <ul class="nav ej-nav-header" id="parentTab" role="tablist">
-        <li class="ej-nav-item">
-          <a href="#demo" data-bs-toggle="tab" role="tab" aria-selected="true">
-            <Span class="ej-sb-icons ej-demo-icon"></Span><Span>DEMO</Span>
-          </a>
-        </li>
-        <li class="ej-nav-item source-tab">
-          <a href="#source" data-bs-toggle="tab" role="tab" aria-selected="false">
-            <Span class="ej-sb-icons ej-source-icon"></Span><Span>SOURCE</Span>
-          </a>
-        </li>
-        <!-- <li class="ej-nav-item desc-tab">
-          <a href="#ej-description" data-bs-toggle="tab" role="tab" aria-selected="false">
-            <Span class="ej-sb-icons ej-description-icon"></Span><Span>Description</Span>
-          </a>
-        </li> -->
-        <li class="ej-nav ej-nav-item ej-sb-icons">
-          <div class="new-tab ej-nav-sub-item">
-            <div class="ej-nav-new ej-nav-sub-item" title="Open in New Window" tabindex="0"></div>
+    <div class="ej-secondary-header" id="secondaryHeader">
+      <div class="ej-header-row">
+        <div class="ej-title-wrap">
+          <h1 class="ej-title"></h1>
+          <span class="ej-category-badge"></span>
+        </div>
+      </div>
+      <p class="ej-meta-description"></p>
+      <div class="ej-header-nav-wrapper">
+        <ul class="nav ej-nav-header" id="parentTab" role="tablist">
+          <li class="ej-nav-item">
+            <a href="#demo" class="active" data-bs-toggle="tab" role="tab" aria-selected="true">
+              <span class="ej-sb-icons ej-demo-icon"></span><span>Demo</span>
+            </a>
+          </li>
+          <li class="ej-nav-item source-tab">
+            <a href="#source" data-bs-toggle="tab" role="tab" aria-selected="false">
+              <span class="ej-sb-icons ej-source-icon"></span><span>Source Code</span>
+            </a>
+          </li>
+        </ul>
+        <div class="ej-sample-nav-wrapper" aria-label="Sample navigation">
+          <div class="ej-sample-nav" aria-label="Sample navigation">
+            <button class="ej-nav-sub-item ej-nav-prev" title="Previous Sample" aria-label="Previous sample" type="button"></button>
+            <button class="ej-nav-sub-item ej-nav-next" title="Next Sample" aria-label="Next sample" type="button"></button>
           </div>
-          <div class="ej-nav-prev ej-nav-sub-item" title="Previous Sample" tabindex="0"></div>
-          <div class="ej-nav-next ej-nav-sub-item" title="Next Sample" tabindex="0"></div>
-        </li>
-      </ul>
+          <div class="ej-nav-divider"></div>
+          <button class="ej-nav-sub-item ej-nav-new" title="Open in New Window" aria-label="Open sample in new window" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div id="parentTabContainer">
       <div class="tab-content ej-tab-content" id="parentTabContent">
-        <div class="tab-pane ej-tab-pane" id="demo" role="tabpanel">
+        <div class="tab-pane ej-tab-pane show active" id="demo" role="tabpanel">
           <ej-sample></ej-sample>
         </div>
         <div class="tab-pane" id="source" role="tabpanel">
@@ -60,47 +65,47 @@
 
     <div id="footer-banner">
       <div id="banner-head" class="header"></div>
-      <div class="content-area" style="display: flex; flex-wrap: wrap;">
+      <div class="content-area">
         <div class="cnt-pt">
-          <!-- <div class="cnt-icon click-icon sb-icons sb-icon-icon-selection"></div> -->
-          <span class="tick-mark"></span>
+          <span class="tick-mark" aria-hidden="true"></span>
           <div class="cnt-text cnt-text-1"></div>
         </div>
         <div class="cnt-pt">
-          <!-- <div class="cnt-icon click-icon sb-icons sb-icon-icon-selection"></div> -->
-          <span class="tick-mark"></span>
+          <span class="tick-mark" aria-hidden="true"></span>
           <div class="cnt-text cnt-text-2"></div>
         </div>
         <div class="cnt-pt">
-          <!-- <div class="cnt-icon click-icon sb-icons sb-icon-icon-selection"></div> -->
-          <span class="tick-mark"></span>
+          <span class="tick-mark" aria-hidden="true"></span>
           <div class="cnt-text cnt-text-3"></div>
         </div>
       </div>
-      <a class="free-trial-url" target="_blank" rel="noreferrer">
-        <div class="free-trial">TRY IT FOR FREE</div>
+      <a class="free-trial-url" href="https://www.boldreports.com/register/reports?evaluation=v2"  target="_blank" >
+        <div class="free-trial">Start Your Free Trial</div>
       </a>
     </div>
   <!--Footer section-->
   <div class="ej-lp-footer">
     <div class="ej-lp-footer-links">
-      <a href="https://help.boldreports.com/embedded-reporting/javascript-reporting/" target="_blank" rel="noreferrer">
+      <a href="https://help.boldreports.com/embedded-reporting/javascript-reporting/" target="_blank">
           Documentation
       </a>
-      <a href="https://www.boldreports.com/blog" target="_blank" rel="noreferrer">
+      <a href="https://www.boldreports.com/blog" target="_blank">
           Blog
       </a>
-      <a href="https://support.boldreports.com/support/tickets/create" target="_blank" rel="noreferrer">
+      <a href="https://support.boldreports.com/support/tickets/create" target="_blank">
           Support
       </a>
-      <a href="https://www.boldreports.com/feedback" target="_blank" rel="noreferrer">
+      <a href="https://www.boldreports.com/feedback" target="_blank">
           Feedback
       </a>
-      <a href="https://support.boldreports.com/" target="_blank" rel="noreferrer">
+      <a href="https://support.boldreports.com/" target="_blank">
         Knowledge Base
     </a>
-    <a href="https://www.boldreports.com/learn" target="_blank" rel="noreferrer">
+    <a href="https://www.boldreports.com/learn" target="_blank">
         Learning Center
+    </a>
+    <a href="https://www.boldreports.com/free-tools/" target="_blank">
+        Free Tools
     </a>
     </div>
     <div class="ej-lp-footer-copyright"></div>

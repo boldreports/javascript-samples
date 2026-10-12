@@ -173,14 +173,17 @@ function updateSampleDetails(sampleData) {
     let banner = samplesData.banner;
     setInnerText('.ej-main-body-content .ej-title', sampleData.sampleName);
     setInnerText('.ej-main-body-content .ej-meta-description', sampleData.metaData.description);
+    const badge = document.querySelector('.ej-main-body-content .ej-category-badge');
+    if (badge) {
+        badge.textContent = sampleData.category ?? 'Report';
+        badge.style.display = sampleData.category ? '' : 'none';
+    }
 
     //Banner
     setInnerText('.ej-main-body-content .header', banner.text);
     setInnerText('.ej-main-body-content .cnt-text-1', banner.features[0]);
     setInnerText('.ej-main-body-content .cnt-text-2', banner.features[1]);
     setInnerText('.ej-main-body-content .cnt-text-3', banner.features[2]);
-    document.querySelector('.free-trial-url').setAttribute('href', banner.freeTrialUrl);
-
 }
 
 

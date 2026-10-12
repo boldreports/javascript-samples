@@ -18,11 +18,11 @@
   },
   "platform": "JavaScript",
   "banner": {
-    "text": "Start embedding powerful business intelligence reporting inside your modern web apps today",
+    "text": "Start Building Pixel-Perfect Reporting Today",
     "features" : [
-      "User-friendly Report Server",
-      "Intuitive drag-and-drop widgets",
-      "Hassle-free licensing"
+      "Native RDL & RDLC Compatibility",
+      "Intuitive Drag-and-Drop Widgets",
+      "Modern Web-Based Reporting"
     ],
     "freeTrialUrl": "https://www.boldreports.com/register/reports?evaluation=v2"
   },

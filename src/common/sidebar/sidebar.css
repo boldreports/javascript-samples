@@ -1,7 +1,13 @@
 .ej-sidebar-content .ej-sb-home {
   height: 38px;
-  margin: 8px 10px 8px 28px;
+  margin: 14px 10px 8px 28px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0 12px;
+  transition: background-color 160ms ease, color 160ms ease;
+  color: var(--neutral-700);
 }
 
 .ej-sidebar-content .ej-sb-home::before {
@@ -11,8 +17,14 @@
   margin-right: 8px;
 }
 
+.ej-sidebar-content .ej-sb-home:hover::before,
+.ej-sidebar-content .ej-sb-home:hover .ej-sb-home-text {
+  color: var(--blue-700);
+  opacity: 1;
+}
+
 .ej-sidebar-content .ej-sb-home .ej-sb-home-text {
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
+  font-family: "Inter",sans-serif;
   display: inline-block;
   vertical-align: text-bottom;
   font-size: 13px;
@@ -25,23 +37,40 @@
 }
 
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card {
-  width: 150px;
-  margin: 8px auto;
+  width: 160px;
+  margin: 8px 0px;
   text-align: center;
-  border: 2px solid transparent;
+  border: 1px solid var(--neutral-100);
   position: relative;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
-.ej-sidebar-content .ej-sb-toc .ej-sb-toc-card:hover,
+.ej-sidebar-content .ej-sb-toc .ej-sb-toc-card:hover{
+  box-shadow: 0 1px 3px rgba(13, 19, 31, .10), 0 1px 2px -1px rgba(13, 19, 31, .10);
+}
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card.toc-selected {
-  border-color: #ff5f23;
+background-color: var(--blue-50);
+border: 1px solid var(--blue-200);
+}
+
+.ej-sidebar-content .ej-sb-toc .ej-sb-toc-card.toc-selected::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
+  border-radius: 18px 0 0 18px;
+  background-color: var(--blue-600);
 }
 
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card .ej-landscape-img {
   display: inline-flex;
   height: 70px;
   width: 120px;
-  margin: 8px;
+  margin: 12px 8px 0px 8px;
   background-image: url('./../../../assets/sidebar/landscape.png');
   background-size: 100% 1100%;
 }
@@ -49,8 +78,8 @@
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card .ej-portrait-img {
   display: inline-flex;
   height: 120px;
-  width: 90px;
-  margin: 8px;
+  width: 120px;
+  margin: 12px 8px 0px 8px;
   background-image: url('./../../../assets/sidebar/portrait.png');
   background-size: 100% 2300%;
 }
@@ -58,11 +87,13 @@
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card .ej-sb-toc-title {
   font-size: 12px;
   font-weight: 600;
-  color: #2b3a5c;
+  color: var(--neutral-700);
+  padding-bottom: 5px;
 }
 
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card.toc-selected .ej-sb-toc-title {
-  color: #ff5f23;
+  color: var(--neutral-900);
+  font-weight: 700;
 }
 
 .ej-sidebar-content .ej-sb-toc .ej-sb-toc-card .ej-status-label {
