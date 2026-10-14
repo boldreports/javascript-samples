@@ -1,11 +1,11 @@
+@import './variables.css';
 @import './../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import './header/header.css';
 @import './main-content/main-content.css';
 @import './sidebar/sidebar.css';
 @import './ej2-buttons.min.css';
-@import './../../node_modules/prismjs/themes/prism.css';
+@import './../../node_modules/prismjs/themes/prism-dark.css';
 @import './../../node_modules/@boldreports/javascript-reporting-controls/Content/v2.0/tailwind-light/bold.report-viewer.min.css';
-
 
 /* loader */
 .splash {
@@ -82,10 +82,10 @@
 }
 
 body {
-  color: #2b3a5c;
+  color: var(--neutral-600);
   margin: 0;
-  background-color: #F2F2F2;
-  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
+  background-color: var(--neutral-50);
+  font-family: "Inter", sans-serif;
   overflow: hidden;
 }
 
@@ -181,7 +181,7 @@ body {
 .ej-main-parent-content {
   position: absolute;
   left: 0;
-  top: 48px;
+  top: 56px;
   bottom: 0;
   right: 0;
   transition: left 400ms ease;
@@ -279,7 +279,11 @@ ej-sidebar {
 }
 
 #description a{
-  color: #ff5f23 
+  color: var(--blue-600);
+}
+
+#description a:hover{
+  color: var(--blue-700);
 }
 
 #r-w-form {

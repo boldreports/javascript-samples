@@ -5,4 +5,6 @@ export function loadTrackingScript() {
     document.head.appendChild(script);
 }
 
-loadTrackingScript();
+document.addEventListener('DOMContentLoaded', function () {
+    loadTrackingScript();
+});

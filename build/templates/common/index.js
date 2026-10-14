@@ -91,7 +91,23 @@ window['CodeMirror'] = CodeMirror;
 import './../../../src/common/tracking';
 
 $(function() {
-    document.getElementById('home_page').setAttribute('href', '/javascript/#/');
+    let homePage = document.getElementById('home_page');
+    if (homePage) {
+        homePage.setAttribute('href', '/javascript/#/');
+    }
+});
+
+$(function () {
+    const isLocal = !window.location.hostname.includes('boldreports.com');
+    document.querySelectorAll('a.ej-fw-pill[data-fw-slug]').forEach((pill) => {
+        const slug = pill.getAttribute('data-fw-slug') || '';
+        pill.setAttribute(
+            'href',
+            isLocal
+                ? (slug === '' ? '/' : '/' + slug + '.html')
+                : (slug === '' ? '/home/' : '/home/' + slug + '.html')
+        );
+    });
 });
 
 window.addEventListener('beforeunload', () => {

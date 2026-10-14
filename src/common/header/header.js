@@ -1,9 +1,3 @@
-import {
-    getRouterData
-} from './../router';
-import samplesData from '../../controls/samples.json';
-import * as hasher from 'hasher';
-
 export class Header {
     constructor(element) {
         this.element = element;
@@ -11,13 +5,8 @@ export class Header {
 
     async init() {
         this.element.innerHTML = await this.fetchFile('src/common/header/header.html');
-        let otherPlatforms = Object.keys(samplesData.otherPlatforms);
-        let dropDownItems = this.element.querySelector('.dropdown-menu');
-        dropDownItems.addEventListener('click', this.platformSwitcher.bind(this));
-        this.createdropdownItem(samplesData.platform, dropDownItems, true);
-        for (let i = 0; i < otherPlatforms.length; i++) {
-            this.createdropdownItem(otherPlatforms[i].trim(), dropDownItems);
-        }
+        this.applyFrameworkPillLinks();
+        this.appendLeadParamsToTryItFree();
         this.element.getElementsByClassName('ej-sb-hamburger-icon')[0].addEventListener('click', this.onHamBurgerClick.bind(this));
     }
     async fetchFile(path) {
@@ -26,14 +15,108 @@ export class Header {
         return data;
     }
 
-    createdropdownItem(text, target, isActive = false) {
-        let dropDownItem = document.createElement('a');
-        dropDownItem.innerText = text;
-        dropDownItem.classList.add('dropdown-item');
-        if (isActive) {
-            dropDownItem.classList.add('active');
+    applyFrameworkPillLinks() {
+        const isLocal = !window.location.hostname.toLowerCase().includes('boldreports.com');
+        const pills = this.element.querySelectorAll('a.ej-fw-pill[data-fw-slug]');
+        pills.forEach((pill) => {
+            const slug = pill.getAttribute('data-fw-slug') || '';
+            pill.setAttribute(
+                'href',
+                isLocal
+                    ? (slug === '' ? '/' : '/' + slug + '.html')
+                    : (slug === '' ? '/home/' : '/home/' + slug + '.html')
+            );
+        });
+    }
+
+    appendLeadParamsToTryItFree() {
+        const link = this.element.querySelector('a.try-it-free');
+        if (!link || !link.href.includes('evaluation=v2')) {
+            return;
         }
-        target.appendChild(dropDownItem);
+
+        const getQueryParameter = (name) => {
+            const params = window.location.search.substring(1).split('&');
+            for (const param of params) {
+                const [key, value = ''] = param.split('=');
+                if (key === name) {
+                    return decodeURIComponent(value).trim();
+                }
+            }
+            return null;
+        };
+
+        const getCookie = (name) => {
+            const prefix = name + '=';
+            const cookies = document.cookie.split(';');
+            for (const raw of cookies) {
+                const cookie = raw.trim();
+                if (cookie.indexOf(prefix) === 0) {
+                    return decodeURIComponent(cookie.substring(prefix.length));
+                }
+            }
+            return null;
+        };
+
+        const referrer = getCookie('referral_url') || document.referrer || window.location.href;
+        const cleanUrl = (url) => {
+            if (!url) { return ''; }
+            try {
+                const parsed = new URL(url);
+                return parsed.origin + parsed.pathname;
+            } catch {
+                return url.split(/[?#]/)[0];
+            }
+        };
+        const landingPageUrl = cleanUrl(window.location.href);
+        const referrerOriginUrl = cleanUrl(referrer);
+
+        const gclid = getQueryParameter('gclid') || getCookie('gclid') || '';
+        const uuid = getCookie('_uid') || '';
+
+        const leadSource = getQueryParameter('utm_campaign')
+            || (getQueryParameter('gclid') ? getQueryParameter('gclid') : null)
+            || (getCookie('lead_source') && getCookie('lead_source') !== 'www.google.com' ? getCookie('lead_source') : null)
+            || (referrer ? referrer.split('/')[2] : location.hostname);
+        const leadCategory = (() => {
+            const utmSource = getQueryParameter('utm_source');
+            if (utmSource) { return utmSource; }
+            if (getQueryParameter('gclid')) { return 'Google_Ads'; }
+            const stored = getCookie('lead_category');
+            if (stored) { return stored; }
+            const referrerDomain = referrer ? referrer.split('/')[2] : '';
+            const mappings = {
+                'medium.com': 'medium',
+                'nuget.org': 'nuget',
+                'npmjs.com': 'npm',
+                'github.com': 'github',
+                'facebook.com': 'facebook',
+                'linkedin.com': 'linkedin',
+                'twitter.com': 'twitter',
+                'x.com': 'twitter'
+            };
+            for (const key in mappings) {
+                if (referrerDomain.indexOf(key) !== -1) {
+                    return mappings[key];
+                }
+            }
+            return 'Site_Visitors';
+        })();
+
+        const appendQueryParam =
+            '&leadsource=' + encodeURIComponent(leadSource || '') +
+            '&leadcategory=' + encodeURIComponent(leadCategory || '') +
+            '&opportunitysource=' + encodeURIComponent(leadSource || '') +
+            '&opportunitycategory=' + encodeURIComponent(leadCategory || '') +
+            '&uuid=' + encodeURIComponent(uuid) +
+            '&gclid=' + encodeURIComponent(gclid) +
+            '&referrerroriginurl=' + encodeURIComponent(referrerOriginUrl) +
+            '&secondaryreferraloriginurl=' + encodeURIComponent(landingPageUrl) +
+            '&landingpageurl=' + encodeURIComponent(landingPageUrl) +
+            '&secondaryleadsource=Bold_Reports_Trial';
+
+        const baseHref = link.href.split('evaluation=v2')[0] + 'evaluation=v2';
+        link.href = baseHref + appendQueryParam;
     }
 
     onHamBurgerClick() {
@@ -51,36 +134,6 @@ export class Header {
             let desktopSidebar = document.querySelector('.ej-main-parent-content');
             let classFn = desktopSidebar.classList.contains('ej-toc-slide-left') ? 'remove' : 'add';
             desktopSidebar.classList[classFn]('ej-toc-slide-left');
-        }
-    }
-
-    platformSwitcher(e) {
-        if (e.target.tagName == 'A') {
-            let targetPlatform = e.target.innerText.trim();
-            let routerData = getRouterData(hasher.getHash());
-            let platformBasePath;
-            let platformSamplePath;
-            const sampleName = routerData.reportRouterPath ? routerData.reportRouterPath : routerData.reportBasePath;
-            if (routerData.reportRouterPath) {
-                platformBasePath = this.getRouterPath(samplesData.platform, targetPlatform, routerData.reportBasePath);
-            }
-            platformSamplePath = this.getRouterPath(samplesData.platform, targetPlatform, sampleName);
-            const reportPath = routerData.reportRouterPath ? (platformBasePath + '/' + platformSamplePath) : platformSamplePath;
-            window.open(location.origin + "/" + samplesData.otherPlatforms[targetPlatform] + reportPath, '_self');
-        }
-    }
-
-    getRouterPath(curPlatform, targetplatform, sampleName) {
-        curPlatform = curPlatform.toLowerCase();
-        targetplatform = targetplatform.toLowerCase();
-        const samePath = (curPlatform.indexOf('asp') === -1 && targetplatform.indexOf('asp') === -1 && targetplatform.indexOf('blazor') === -1) ||
-            (curPlatform.indexOf('asp') >= 0 && targetplatform.indexOf('asp') >= 0);
-        if (samePath) {
-            return sampleName;
-        } else {
-                return sampleName.split(/(?=[A-Z])/).map((name) => {
-                    return name.toLowerCase();
-                }).join('-');
         }
     }
 }
